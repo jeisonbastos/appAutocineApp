@@ -12,8 +12,7 @@ import { fakeBackendProvider } from '../_helpers';
 
 @NgModule({
   declarations: [InicioComponent],
-  imports: [CommonModule, HomeRoutingModule],
+  imports: [CommonModule, HomeRoutingModule, UserRoutingModule],
   exports: [InicioComponent],
-
 })
 export class HomeModule {}

@@ -5,12 +5,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { ShareModule } from './share/share.module';
+import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 import { UserModule } from './user/user.module';
-import { JwtInterceptor, ErrorInterceptor } from './_helpers';
-// used to create fake backend
-import { fakeBackendProvider } from './_helpers';
+// import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+// // used to create fake backend
+// import { fakeBackendProvider } from './_helpers';
+import { ProductModule } from './products/product.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,10 +24,11 @@ import { fakeBackendProvider } from './_helpers';
 
     // importar los módulos creados propios en orden
     CoreModule,
-    ShareModule,
+    SharedModule,
     // después los demás módulos
     HomeModule,
     UserModule,
+    ProductModule,
 
     // al final el gestor de las rutas principal
     AppRoutingModule,

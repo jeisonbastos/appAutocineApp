@@ -7,12 +7,14 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { LoginComponent } from './user/login/login.component'
 import { AuthGuard } from './_helpers';
 import { UserModule } from './user/user.module';
+import { ProductListComponent } from './products/product-list.component';
 
 const routes: Routes = [
   { path: 'home', component: InicioComponent, canActivate: [AuthGuard] },
   { path: '**', component: PageNotFoundComponent },
   { path: 'notifications', component: NotificationsComponent },
   { path: 'user/login', component: LoginComponent },
+  { path: 'products' , component: ProductListComponent}
 ];
 
 @NgModule({

@@ -14,12 +14,12 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
   declarations: [LoginComponent, UserProfileComponent],
   imports: [CommonModule, UserRoutingModule, ],
   exports: [UserRoutingModule],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  // providers: [
+  //   { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  //   { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
-    // provider used to create fake backend
-    fakeBackendProvider,
-  ],
+  //   // provider used to create fake backend
+  //   fakeBackendProvider,
+  // ],
 })
 export class UserModule {}
