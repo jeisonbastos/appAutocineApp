@@ -1,6 +1,6 @@
-<div id="productDetail">
+<div class="container" id="productDetail">
   <div class="row" style="height: 120px;"></div>
-<div class='card'
+<div class='card col-md-12 offset-md-1 mt-2'
      *ngIf='product'>
   <div class='card-header'>
     {{pageTitle + ': ' + product.productName}}
@@ -15,7 +15,7 @@
         </div>
         <div class='row'>
           <div class='col-md-4'>Code:</div>
-          <div class='col-md-8'>{{product.productCode | lowercase | convertToSpaces: '-'}}</div>
+          <!-- <div class='col-md-8'>{{product.productCode | lowercase | convertToSpaces: '-'}}</div> -->
         </div>
         <div class='row'>
           <div class='col-md-4'>Description:</div>

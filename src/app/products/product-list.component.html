@@ -1,6 +1,6 @@
-<div id="products">
+<div class="continer" id="products">
 <div class="row" style="height: 120px;"></div>
-<div class='card'>
+<div class='card col-md-10 offset-md-1 mt-2'>
   <div class='card-header'>
     {{pageTitle}}
   </div>
@@ -50,7 +50,7 @@
                 {{ product.productName }}
               </a>
             </td>
-            <td>{{ product.productCode | lowercase | convertToSpaces:'-' }}</td>
+            <!-- <td>{{ product.productCode | lowercase | convertToSpaces:'-' }}</td> -->
             <td>{{ product.releaseDate }}</td>
             <td>{{ product.price | currency:'USD':'symbol':'1.2-2' }}</td>
             <td>

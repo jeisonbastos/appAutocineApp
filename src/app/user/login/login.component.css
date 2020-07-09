@@ -1,0 +1,11 @@
+#loginContainer {
+  align-self: center;
+  background-color: whitesmoke;
+  opacity: 0.8;
+}
+
+.card-body, #loginForm {
+  align-self: center;
+  background-color: whitesmoke;
+  opacity: 0.8;
+}

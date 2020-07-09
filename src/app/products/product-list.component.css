@@ -1,11 +1,18 @@
 #products
   {
   min-height: 100vh;
-  width: 75%;
+  width: 100%;
   background-color: transparent;
   align-self: center;
   padding: auto;
 }
+
+.card{
+  align-self: center;
+  background-color: whitesmoke;
+  opacity: 0.88;
+}
+
 thead {
   color: #337AB7;
 }
