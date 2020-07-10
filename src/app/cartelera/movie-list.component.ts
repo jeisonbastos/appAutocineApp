@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { IMovie } from './movie';
 import { MovieService } from './movie.service';
-import '../../assets/js/custom.js'
 
 
 @Component({

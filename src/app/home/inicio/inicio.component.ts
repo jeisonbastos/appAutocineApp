@@ -7,9 +7,12 @@ import { UserService, AuthenticationService } from '../../_services';
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
-  styleUrls: ['./inicio.component.css'],
+  styleUrls: [
+    './inicio.component.css',
+    '../../../assets/css/style.css',
+    '../../../assets/css/plugins.css',
+  ],
 })
-
 export class InicioComponent {
   ngOnInit(): void {}
 }

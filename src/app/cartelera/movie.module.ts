@@ -15,11 +15,8 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     RouterModule.forChild([
       { path: 'cartelera', component: MovieListComponent },
-      {
-        path: 'movies/:id',
-        canActivate: [MovieDetailGuard],
-        component: MovieDetailComponent
-      }
+      { path: 'movies/:id', canActivate: [MovieDetailGuard], component: MovieDetailComponent }
+      // { path: '', }
     ]),
     SharedModule
   ]
