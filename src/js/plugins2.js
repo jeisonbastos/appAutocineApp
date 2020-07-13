@@ -1200,7 +1200,7 @@
 
         case "swf":
           content =
-            '<object id="fancybox-swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%"><param name="movie" value="' +
+            '<object id="fancybox-swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%"><param name="pelicula" value="' +
             href +
             '"></param>';
           embed = "";
@@ -2257,7 +2257,7 @@
  *          http://vimeo.com/groups/surrealism/videos/36516384
  *          http://player.vimeo.com/video/45074303
  *      Metacafe
- *          http://www.metacafe.com/watch/7635964/dr_seuss_the_lorax_movie_trailer/
+ *          http://www.metacafe.com/watch/7635964/dr_seuss_the_lorax_pelicula_trailer/
  *          http://www.metacafe.com/watch/7635964/
  *      Dailymotion
  *          http://www.dailymotion.com/video/xoytqh_dr-seuss-the-lorax-premiere_people

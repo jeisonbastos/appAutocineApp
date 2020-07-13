@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MovieDetailGuard } from './movie-detail.guard';
+import { PeliculaDetailGuard } from './pelicula-detail.guard';
 
-describe('MovieDetailGuard', () => {
-  let guard: MovieDetailGuard;
+describe('PeliculaDetailGuard', () => {
+  let guard: PeliculaDetailGuard;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    guard = TestBed.inject(MovieDetailGuard);
+    guard = TestBed.inject(PeliculaDetailGuard);
   });
 
   it('should be created', () => {

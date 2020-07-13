@@ -4,24 +4,24 @@ import { Routes, RouterModule } from '@angular/router';
 import { InicioComponent } from './home/inicio/inicio.component';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import { NotificationsComponent } from './notifications/notifications.component';
-import { LoginComponent } from './user/login/login.component'
+import { LoginComponent } from './user/login/login.component';
 import { AuthGuard } from './_helpers';
 import { UserModule } from './user/user.module';
 import { ProductListComponent } from './products/product-list.component';
-import { MovieListComponent } from './cartelera/movie-list.component'
+import { PeliculaListComponent } from './pelicula/pelicula-list/pelicula-list.component';
 
 const routes: Routes = [
   { path: 'home', component: InicioComponent, canActivate: [AuthGuard] },
   { path: '**', component: PageNotFoundComponent },
   { path: 'notifications', component: NotificationsComponent },
   { path: 'user/login', component: LoginComponent },
-  { path: 'products' , component: ProductListComponent},
-  { path: 'cartelera' , component: MovieListComponent },
+  { path: 'products', component: ProductListComponent },
+  { path: 'pelicula', component: PeliculaListComponent },
 ];
 
 @NgModule({
   imports: [CommonModule, RouterModule.forRoot(routes)],
-  exports: [RouterModule, ],
+  exports: [RouterModule],
 
   declarations: [],
 })

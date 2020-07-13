@@ -4140,14 +4140,14 @@ ul {
 }
 /* IV. SKELETON
 ***********************/
-.movie-items.full-width,
+.pelicula-items.full-width,
 .trailers.full-width,
 .latestnew.full-width,
 .full-width {
   padding: 70px 100px;
 }
 @media (max-width: 767px) {
-  .movie-items.full-width,
+  .pelicula-items.full-width,
   .trailers.full-width,
   .latestnew.full-width,
   .full-width {
@@ -4164,12 +4164,12 @@ ul {
     padding: 0 30px;
   }
 }
-.movie-items .slide-it {
+.pelicula-items .slide-it {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
-.movie-items .movie-item {
+.pelicula-items .pelicula-item {
   position: relative;
   margin-right: 30px;
   -webkit-border-radius: 5px;
@@ -4177,15 +4177,15 @@ ul {
   border-radius: 5px;
 }
 @media (max-width: 767px) {
-  .movie-items .movie-item {
+  .pelicula-items .pelicula-item {
     display: inherit;
     margin-right: 0px;
   }
 }
-.movie-items .movie-item .mv-img {
+.pelicula-items .pelicula-item .mv-img {
   position: relative;
 }
-.movie-items .movie-item .mv-img:after {
+.pelicula-items .pelicula-item .mv-img:after {
   box-shadow: inset -5px -50px 100px -15px #000000;
   -webkit-box-shadow: inset -5px -50px 100px -15px #000000;
   -moz-box-shadow: inset -5px -50px 100px -15px #000000;
@@ -4198,14 +4198,14 @@ ul {
   height: 100%;
   content: "";
 }
-.movie-items .movie-item img {
+.pelicula-items .pelicula-item img {
   width: 100%;
   -webkit-transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
   -o-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
-.movie-items .movie-item .title-in {
+.pelicula-items .pelicula-item .title-in {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -4216,30 +4216,30 @@ ul {
   position: absolute;
 }
 @media (max-width: 767px) {
-  .movie-items .movie-item .title-in {
+  .pelicula-items .pelicula-item .title-in {
     margin-left: 60px;
   }
 }
-.movie-items .movie-item .title-in h6 a {
+.pelicula-items .pelicula-item .title-in h6 a {
   font-family: "Dosis", sans-serif;
   font-size: 14px;
   color: #ffffff;
   font-weight: bold;
   text-transform: uppercase;
 }
-.movie-items .movie-item .title-in p {
+.pelicula-items .pelicula-item .title-in p {
   font-size: 12px;
   color: #ffffff;
 }
-.movie-items .movie-item .title-in p i {
+.pelicula-items .pelicula-item .title-in p i {
   color: #f5b50a;
   font-size: 22px;
 }
-.movie-items .movie-item .title-in p span {
+.pelicula-items .pelicula-item .title-in p span {
   font-weight: 400;
   font-size: 18px;
 }
-.movie-items .movie-item .hvr-inner {
+.pelicula-items .pelicula-item .hvr-inner {
   margin: auto;
   position: absolute;
   top: 0;
@@ -4261,7 +4261,7 @@ ul {
   -o-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
-.movie-items .movie-item .hvr-inner a {
+.pelicula-items .pelicula-item .hvr-inner a {
   font-family: "Dosis", sans-serif;
   font-size: 14px;
   color: #abb7c4;
@@ -4269,10 +4269,10 @@ ul {
   text-transform: uppercase;
   color: #ffffff;
 }
-.movie-items .movie-item .hvr-inner a i {
+.pelicula-items .pelicula-item .hvr-inner a i {
   margin-right: 5px;
 }
-.movie-items .movie-item:hover .hvr-inner {
+.pelicula-items .pelicula-item:hover .hvr-inner {
   -moz-opacity: 1;
   -khtml-opacity: 1;
   -webkit-opacity: 1;
@@ -4284,8 +4284,8 @@ ul {
   -o-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
-.movie-items .movie-item:hover .title-in,
-.movie-items .movie-item:hover img {
+.pelicula-items .pelicula-item:hover .title-in,
+.pelicula-items .pelicula-item:hover img {
   -webkit-transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
   -o-transition: all 0.5s ease-out;
@@ -4297,7 +4297,7 @@ ul {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=25);
   filter: alpha(opacity=25);
 }
-.movie-items .movie-item:hover h6 a {
+.pelicula-items .pelicula-item:hover h6 a {
   color: #dcf836;
 }
 .cate {
@@ -4328,19 +4328,19 @@ ul {
 .cate .orange {
   background-color: #ec5a1a;
 }
-.movie_list .movie-item-style-2 img,
-.movie_single .movie-item-style-2 img,
-.userfav_list .movie-item-style-2 img {
+.pelicula_list .pelicula-item-style-2 img,
+.pelicula_single .pelicula-item-style-2 img,
+.userfav_list .pelicula-item-style-2 img {
   width: 30%;
 }
 @media (max-width: 767px) {
-  .movie_list .movie-item-style-2 img,
-  .movie_single .movie-item-style-2 img,
-  .userfav_list .movie-item-style-2 img {
+  .pelicula_list .pelicula-item-style-2 img,
+  .pelicula_single .pelicula-item-style-2 img,
+  .userfav_list .pelicula-item-style-2 img {
     width: auto;
   }
 }
-.movie-item-style-2 {
+.pelicula-item-style-2 {
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
@@ -4351,12 +4351,12 @@ ul {
   margin-bottom: 30px;
 }
 @media (max-width: 767px) {
-  .movie-item-style-2 {
+  .pelicula-item-style-2 {
     display: flex;
     flex-direction: column;
   }
 }
-.movie-item-style-2 img {
+.pelicula-item-style-2 img {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -4367,65 +4367,65 @@ ul {
   transition: all 0.5s ease-out;
 }
 @media (max-width: 767px) {
-  .movie-item-style-2 img {
+  .pelicula-item-style-2 img {
     margin-right: 0;
     margin-bottom: 15px;
   }
 }
 @media (max-width: 767px) {
-  .movie-item-style-2 .mv-item-infor {
+  .pelicula-item-style-2 .mv-item-infor {
     max-width: 180px;
     margin: 0 auto;
   }
 }
-.movie-item-style-2 .mv-item-infor h6 {
+.pelicula-item-style-2 .mv-item-infor h6 {
   margin-bottom: 10px;
 }
-.movie-item-style-2 .mv-item-infor h6 a {
+.pelicula-item-style-2 .mv-item-infor h6 a {
   font-family: "Dosis", sans-serif;
   font-size: 14px;
   color: #ffffff;
   font-weight: bold;
   text-transform: uppercase;
 }
-.movie-item-style-2 .mv-item-infor h6 a span {
+.pelicula-item-style-2 .mv-item-infor h6 a span {
   color: #abb7c4;
 }
-.movie-item-style-2 .mv-item-infor .describe {
+.pelicula-item-style-2 .mv-item-infor .describe {
   padding-bottom: 25px;
   border-bottom: 1px solid #405266;
   margin-bottom: 25px;
 }
-.movie-item-style-2 .mv-item-infor .run-time span {
+.pelicula-item-style-2 .mv-item-infor .run-time span {
   margin-left: 15px;
   margin-right: 15px;
 }
-.movie-item-style-2 .mv-item-infor .rate {
+.pelicula-item-style-2 .mv-item-infor .rate {
   font-size: 12px;
 }
-.movie-item-style-2 .mv-item-infor .rate i {
+.pelicula-item-style-2 .mv-item-infor .rate i {
   color: #f5b50a;
   font-size: 22px;
   margin-right: 5px;
 }
-.movie-item-style-2 .mv-item-infor .rate span {
+.pelicula-item-style-2 .mv-item-infor .rate span {
   color: #ffffff;
   font-size: 16px;
   font-weight: 400;
 }
-.movie-item-style-2 .mv-item-infor p {
+.pelicula-item-style-2 .mv-item-infor p {
   margin-bottom: 0;
 }
-.movie-item-style-2 .mv-item-infor p a {
+.pelicula-item-style-2 .mv-item-infor p a {
   color: #4280bf;
 }
-.movie-item-style-2 .mv-item-infor p a:hover {
+.pelicula-item-style-2 .mv-item-infor p a:hover {
   color: #dcf836;
 }
-.movie-item-style-2:hover h6 a {
+.pelicula-item-style-2:hover h6 a {
   color: #dcf836;
 }
-.movie-item-style-1 {
+.pelicula-item-style-1 {
   display: flex;
   flex-direction: column;
   align-items: inherit;
@@ -4433,11 +4433,11 @@ ul {
   position: relative;
   margin-right: 23px;
 }
-.movie-item-style-1 img {
+.pelicula-item-style-1 img {
   margin-right: 0;
   margin-bottom: 15px;
 }
-.movie-item-style-1 .hvr-inner {
+.pelicula-item-style-1 .hvr-inner {
   position: absolute;
   top: 0;
   background-color: #dd003f;
@@ -4461,11 +4461,11 @@ ul {
   transition: all 0.5s ease-out;
 }
 @media (max-width: 991px) {
-  .movie-item-style-1 .hvr-inner {
+  .pelicula-item-style-1 .hvr-inner {
     margin-left: 0;
   }
 }
-.movie-item-style-1 .hvr-inner a {
+.pelicula-item-style-1 .hvr-inner a {
   font-family: "Dosis", sans-serif;
   font-size: 14px;
   color: #abb7c4;
@@ -4473,10 +4473,10 @@ ul {
   text-transform: uppercase;
   color: #ffffff;
 }
-.movie-item-style-1 .hvr-inner a i {
+.pelicula-item-style-1 .hvr-inner a i {
   margin-right: 5px;
 }
-.movie-item-style-1:hover img {
+.pelicula-item-style-1:hover img {
   -moz-opacity: 0.5;
   -khtml-opacity: 0.5;
   -webkit-opacity: 0.5;
@@ -4484,7 +4484,7 @@ ul {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50);
   filter: alpha(opacity=50);
 }
-.movie-item-style-1:hover .hvr-inner {
+.pelicula-item-style-1:hover .hvr-inner {
   -moz-opacity: 1;
   -khtml-opacity: 1;
   -webkit-opacity: 1;
@@ -4492,11 +4492,11 @@ ul {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
   filter: alpha(opacity=100);
 }
-.movie-item-style-1:hover h6 a {
+.pelicula-item-style-1:hover h6 a {
   color: #dcf836;
 }
 @media (max-width: 767px) {
-  .movie-item-style-1 {
+  .pelicula-item-style-1 {
     margin-left: 15px;
     max-width: 170px;
   }
@@ -4509,7 +4509,7 @@ ul {
     width: 170px;
   }
 }
-.flex-wrap-movielist {
+.flex-wrap-peliculalist {
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
@@ -4521,12 +4521,12 @@ ul {
   margin-right: -30px;
 }
 @media (max-width: 991px) {
-  .flex-wrap-movielist .movie-item-style-2 {
+  .flex-wrap-peliculalist .pelicula-item-style-2 {
     margin-right: 10px;
   }
 }
 @media (max-width: 767px) {
-  .flex-wrap-movielist {
+  .flex-wrap-peliculalist {
     max-width: 200px;
     margin: 0 auto;
   }
@@ -4541,14 +4541,14 @@ ul {
     max-width: 200px;
   }
 }
-.grid-fav .movie-item-style-2 {
+.grid-fav .pelicula-item-style-2 {
   margin-right: 15px;
 }
 @media (max-width: 991px) {
   .grid-fav {
     max-width: 100%;
   }
-  .grid-fav .movie-item-style-2 {
+  .grid-fav .pelicula-item-style-2 {
     margin-right: 20px;
     margin-left: 25px;
   }
@@ -4558,7 +4558,7 @@ ul {
     max-width: 170px;
     margin: 0 auto;
   }
-  .grid-fav .movie-item-style-2 {
+  .grid-fav .pelicula-item-style-2 {
     margin-right: 0;
   }
 }
@@ -4568,29 +4568,29 @@ ul {
   }
 }
 @media (max-width: 767px) {
-  .user-fav-list .movie-item-style-2 {
+  .user-fav-list .pelicula-item-style-2 {
     width: 100%;
   }
 }
-.movie-items,
+.pelicula-items,
 .latestnew {
   padding: 70px 0;
   background-color: #020d18;
 }
-.movie-items .tab-links {
+.pelicula-items .tab-links {
   position: relative;
 }
-.movie-items .slick-multiItem,
-.movie-items .slick-multiItem2 {
+.pelicula-items .slick-multiItem,
+.pelicula-items .slick-multiItem2 {
   display: flex;
   flex-direction: column;
 }
-.movie-items .slick-multiItem .slick-list,
-.movie-items .slick-multiItem2 .slick-list {
+.pelicula-items .slick-multiItem .slick-list,
+.pelicula-items .slick-multiItem2 .slick-list {
   order: 2;
 }
-.movie-items .slick-multiItem .slick-dots,
-.movie-items .slick-multiItem2 .slick-dots {
+.pelicula-items .slick-multiItem .slick-dots,
+.pelicula-items .slick-multiItem2 .slick-dots {
   position: absolute;
   margin-left: 50%;
   text-align: right;
@@ -4601,15 +4601,15 @@ ul {
   margin-top: -55px;
 }
 @media (max-width: 767px) {
-  .movie-items .slick-multiItem .slick-dots,
-  .movie-items .slick-multiItem2 .slick-dots {
+  .pelicula-items .slick-multiItem .slick-dots,
+  .pelicula-items .slick-multiItem2 .slick-dots {
     width: 100%;
     margin-left: 0;
     margin-top: 0;
     text-align: left;
   }
 }
-.movie-items .slick-slider {
+.pelicula-items .slick-slider {
   margin-left: 15px;
 }
 .topbar-filter {
@@ -5755,7 +5755,7 @@ ul {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.75);
 }
-/*movie single hero*/
+/*pelicula single hero*/
 .mv-single-hero {
   background: url("../img/uploads/hero-bg.jpg") no-repeat;
   height: 598px;
@@ -6048,29 +6048,29 @@ ul {
   -o-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
-.movie-single {
+.pelicula-single {
   margin-top: -415px;
 }
-.movie-single .movie-img,
-.movie-single .mv-ceb {
+.pelicula-single .pelicula-img,
+.pelicula-single .mv-ceb {
   margin-right: 30px;
   margin-bottom: 60px;
 }
 @media (max-width: 767px) {
-  .movie-single .movie-img,
-  .movie-single .mv-ceb {
+  .pelicula-single .pelicula-img,
+  .pelicula-single .mv-ceb {
     margin-right: 0;
   }
 }
-.movie-single .movie-img img,
-.movie-single .mv-ceb img {
+.pelicula-single .pelicula-img img,
+.pelicula-single .mv-ceb img {
   width: 100%;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
-.movie-single .movie-img .movie-btn,
-.movie-single .mv-ceb .movie-btn {
+.pelicula-single .pelicula-img .pelicula-btn,
+.pelicula-single .mv-ceb .pelicula-btn {
   text-align: center;
   padding: 18px;
   display: flex;
@@ -6078,19 +6078,19 @@ ul {
   background-color: #07101a;
   border: 3px solid #0c1c2c;
 }
-.movie-single .movie-img .movie-btn a,
-.movie-single .mv-ceb .movie-btn a {
+.pelicula-single .pelicula-img .pelicula-btn a,
+.pelicula-single .mv-ceb .pelicula-btn a {
   height: 45px;
 }
-.movie-single .movie-img .movie-btn .btn-transform.red,
-.movie-single .mv-ceb .movie-btn .btn-transform.red {
+.pelicula-single .pelicula-img .pelicula-btn .btn-transform.red,
+.pelicula-single .mv-ceb .pelicula-btn .btn-transform.red {
   margin-bottom: 15px;
 }
-.movie-single .movie-img .movie-btn .redbtn:hover,
-.movie-single .mv-ceb .movie-btn .redbtn:hover {
+.pelicula-single .pelicula-img .pelicula-btn .redbtn:hover,
+.pelicula-single .mv-ceb .pelicula-btn .redbtn:hover {
   color: #ffffff;
 }
-.movie-single .movie-single-ct .movie-rate {
+.pelicula-single .pelicula-single-ct .pelicula-rate {
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
@@ -6102,13 +6102,13 @@ ul {
   margin-bottom: 70px;
 }
 @media (max-width: 767px) {
-  .movie-single .movie-single-ct .movie-rate {
+  .pelicula-single .pelicula-single-ct .pelicula-rate {
     display: flex;
     flex-direction: column;
     padding: 15px 0;
   }
 }
-.movie-single .movie-single-ct .movie-rate .rate {
+.pelicula-single .pelicula-single-ct .pelicula-rate .rate {
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
@@ -6116,25 +6116,25 @@ ul {
   align-items: center;
   justify-content: flex-start;
 }
-.movie-single .movie-single-ct .movie-rate .rate i {
+.pelicula-single .pelicula-single-ct .pelicula-rate .rate i {
   font-size: 36px;
   color: #f5b50a;
 }
-.movie-single .movie-single-ct .movie-rate .rate p {
+.pelicula-single .pelicula-single-ct .pelicula-rate .rate p {
   margin-bottom: 0;
   margin-left: 10px;
   font-size: 11px;
 }
-.movie-single .movie-single-ct .movie-rate .rate p span {
+.pelicula-single .pelicula-single-ct .pelicula-rate .rate p span {
   color: #ffffff;
   font-size: 15px;
   font-weight: 400;
 }
-.movie-single .movie-single-ct .movie-rate .rate p span.rv {
+.pelicula-single .pelicula-single-ct .pelicula-rate .rate p span.rv {
   font-size: 12px;
   color: #4280bf;
 }
-.movie-single .movie-single-ct .movie-rate .rate-star {
+.pelicula-single .pelicula-single-ct .pelicula-rate .rate-star {
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
@@ -6147,37 +6147,37 @@ ul {
   height: 54px;
 }
 @media (max-width: 767px) {
-  .movie-single .movie-single-ct .movie-rate .rate-star {
+  .pelicula-single .pelicula-single-ct .pelicula-rate .rate-star {
     padding-left: 0;
     border: none;
   }
 }
-.movie-single .movie-single-ct .movie-rate .rate-star p {
+.pelicula-single .pelicula-single-ct .pelicula-rate .rate-star p {
   font-size: 18px;
   color: #abb7c4;
   margin-right: 15px;
   margin-bottom: 0;
 }
 @media (max-width: 767px) {
-  .movie-single .movie-single-ct .movie-rate .rate-star p {
+  .pelicula-single .pelicula-single-ct .pelicula-rate .rate-star p {
     font-size: 16px;
     margin-right: 0;
     margin-top: -60px;
   }
 }
-.movie-single .movie-single-ct .movie-rate .rate-star i {
+.pelicula-single .pelicula-single-ct .pelicula-rate .rate-star i {
   font-size: 36px;
   color: #abb7c4;
 }
 @media (max-width: 767px) {
-  .movie-single .movie-single-ct .movie-rate .rate-star i {
+  .pelicula-single .pelicula-single-ct .pelicula-rate .rate-star i {
     font-size: 22px;
   }
 }
-.movie-single .movie-single-ct .movie-rate .rate-star i.ion-ios-star {
+.pelicula-single .pelicula-single-ct .pelicula-rate .rate-star i.ion-ios-star {
   color: #f5b50a;
 }
-.movie-single .movie-single-ct .tab h3 {
+.pelicula-single .pelicula-single-ct .tab h3 {
   font-family: "Dosis", sans-serif;
   font-size: 18px;
   color: #abb7c4;
@@ -6185,7 +6185,7 @@ ul {
   text-transform: none;
   margin-bottom: 15px;
 }
-.movie-single .movie-single-ct .tab h2 {
+.pelicula-single .pelicula-single-ct .tab h2 {
   font-family: "Dosis", sans-serif;
   font-size: 18px;
   color: #4280bf;
@@ -6194,7 +6194,7 @@ ul {
   font-size: 24px;
   margin-bottom: 30px;
 }
-.movie-single .movie-single-ct .tab .rv-hd {
+.pelicula-single .pelicula-single-ct .tab .rv-hd {
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
@@ -6203,28 +6203,32 @@ ul {
   justify-content: space-between;
 }
 @media (max-width: 767px) {
-  .movie-single .movie-single-ct .tab .rv-hd {
+  .pelicula-single .pelicula-single-ct .tab .rv-hd {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 30px;
   }
 }
-.movie-single .movie-single-ct .tab .rv-hd .redbtn {
+.pelicula-single .pelicula-single-ct .tab .rv-hd .redbtn {
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   border-radius: 30px;
 }
-.movie-single .movie-single-ct .tab.review .mv-user-review-item {
+.pelicula-single .pelicula-single-ct .tab.review .mv-user-review-item {
   border-bottom: 1px solid #233a50;
   padding: 20px 20px 20px 0;
 }
 @media (max-width: 767px) {
-  .movie-single .movie-single-ct .tab.review .mv-user-review-item {
+  .pelicula-single .pelicula-single-ct .tab.review .mv-user-review-item {
     padding: 20px;
   }
 }
-.movie-single .movie-single-ct .tab.review .mv-user-review-item .user-infor {
+.pelicula-single
+  .pelicula-single-ct
+  .tab.review
+  .mv-user-review-item
+  .user-infor {
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
@@ -6233,8 +6237,8 @@ ul {
   justify-content: flex-start;
   align-items: inherit;
 }
-.movie-single
-  .movie-single-ct
+.pelicula-single
+  .pelicula-single-ct
   .tab.review
   .mv-user-review-item
   .user-infor
@@ -6246,7 +6250,7 @@ ul {
   width: 42px;
   height: 42px;
 }
-.movie-single .movie-single-ct .mvsingle-item {
+.pelicula-single .pelicula-single-ct .mvsingle-item {
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
@@ -6257,11 +6261,11 @@ ul {
   flex-wrap: wrap;
 }
 @media (max-width: 767px) {
-  .movie-single .movie-single-ct .mvsingle-item {
+  .pelicula-single .pelicula-single-ct .mvsingle-item {
     padding: 30px;
   }
 }
-.movie-single .movie-single-ct .mvsingle-item img {
+.pelicula-single .pelicula-single-ct .mvsingle-item img {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -6273,7 +6277,7 @@ ul {
   margin-bottom: 15px;
   position: relative;
 }
-.movie-single .movie-single-ct .mvsingle-item img:hover {
+.pelicula-single .pelicula-single-ct .mvsingle-item img:hover {
   -moz-opacity: 0.7;
   -khtml-opacity: 0.7;
   -webkit-opacity: 0.7;
@@ -6285,10 +6289,10 @@ ul {
   -o-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
-.movie-single .movie-single-ct .mvsingle-item .vd-it {
+.pelicula-single .pelicula-single-ct .mvsingle-item .vd-it {
   position: relative;
 }
-.movie-single .movie-single-ct .mvsingle-item .vd-it a {
+.pelicula-single .pelicula-single-ct .mvsingle-item .vd-it a {
   margin: auto;
   position: absolute;
   top: 0;
@@ -6304,52 +6308,52 @@ ul {
   -webkit-align-items: center;
   -webkit-justify-content: center;
 }
-.movie-single .movie-single-ct .mvsingle-item .vd-it a img {
+.pelicula-single .pelicula-single-ct .mvsingle-item .vd-it a img {
   width: initial;
 }
 @media (max-width: 767px) {
 }
-.movie-single .movie-single-ct .mvsingle-item .vd-infor {
+.pelicula-single .pelicula-single-ct .mvsingle-item .vd-infor {
   margin-top: 15px;
 }
-.movie-single .movie-single-ct .mvsingle-item .vd-infor h6 a {
+.pelicula-single .pelicula-single-ct .mvsingle-item .vd-infor h6 a {
   font-family: "Dosis", sans-serif;
   font-size: 14px;
   color: #ffffff;
   font-weight: bold;
   text-transform: none;
 }
-.movie-single .movie-single-ct .mvsingle-item .vd-infor p.time {
+.pelicula-single .pelicula-single-ct .mvsingle-item .vd-infor p.time {
   font-family: "Dosis", sans-serif;
   font-size: 12px;
   color: #abb7c4;
   font-weight: 400;
   text-transform: none;
 }
-.movie-single .movie-single-ct .mvsingle-item .vd-item {
+.pelicula-single .pelicula-single-ct .mvsingle-item .vd-item {
   margin-bottom: 30px;
   width: 170px;
 }
-.movie-single .movie-single-ct .mvsingle-item .vd-item:hover h6 a {
+.pelicula-single .pelicula-single-ct .mvsingle-item .vd-item:hover h6 a {
   color: #dcf836;
 }
 @media (max-width: 767px) {
-  .movie-single .movie-single-ct .media-item {
+  .pelicula-single .pelicula-single-ct .media-item {
     max-width: 170px;
     margin: 0 auto;
     padding: 0;
   }
-  .movie-single .movie-single-ct .media-item .vd-it a {
+  .pelicula-single .pelicula-single-ct .media-item .vd-it a {
     left: 65px;
     top: 30px;
   }
 }
 @media (max-width: 767px) {
-  .movie-single .movie-single-ct .ov-item {
+  .pelicula-single .pelicula-single-ct .ov-item {
     padding: 15px;
   }
 }
-.movie-single .movie-single-ct .mvcast-item .cast-it {
+.pelicula-single .pelicula-single-ct .mvcast-item .cast-it {
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
@@ -6358,7 +6362,7 @@ ul {
   justify-content: flex-start;
   margin-bottom: 30px;
 }
-.movie-single .movie-single-ct .mvcast-item .cast-it .cast-left {
+.pelicula-single .pelicula-single-ct .mvcast-item .cast-it .cast-left {
   width: 60%;
   display: -webkit-flex;
   display: -moz-box;
@@ -6367,7 +6371,7 @@ ul {
   align-items: center;
   justify-content: flex-start;
 }
-.movie-single .movie-single-ct .mvcast-item .cast-it .cast-left h4 {
+.pelicula-single .pelicula-single-ct .mvcast-item .cast-it .cast-left h4 {
   font-family: "Dosis", sans-serif;
   font-size: 14px;
   color: #abb7c4;
@@ -6387,73 +6391,73 @@ ul {
   border-radius: 3px;
   margin-right: 15px;
 }
-.movie-single .movie-single-ct .mvcast-item .cast-it p {
+.pelicula-single .pelicula-single-ct .mvcast-item .cast-it p {
   width: 40%;
   text-align: left;
 }
-.movie-single .movie-single-ct .mvcast-item .cast-it .series-it {
+.pelicula-single .pelicula-single-ct .mvcast-item .cast-it .series-it {
   width: 100%;
 }
-.movie-single .movie-single-ct .mvcast-item .cast-it .series-it a {
+.pelicula-single .pelicula-single-ct .mvcast-item .cast-it .series-it a {
   font-family: "Dosis", sans-serif;
   font-size: 18px;
   color: #ffffff;
   font-weight: bold;
   text-transform: uppercase;
 }
-.movie-single .movie-single-ct .mvcast-item .cast-it .series-it p {
+.pelicula-single .pelicula-single-ct .mvcast-item .cast-it .series-it p {
   padding-right: 20px;
 }
 @media (max-width: 767px) {
-  .movie-single .movie-single-ct .mvcast-item .cast-it .series-it p {
+  .pelicula-single .pelicula-single-ct .mvcast-item .cast-it .series-it p {
     width: 100%;
     padding-right: 10px;
   }
 }
-.movie-single .movie-single-ct .mvcast-item .cast-it .cebleb-film {
+.pelicula-single .pelicula-single-ct .mvcast-item .cast-it .cebleb-film {
   width: 90%;
 }
-.movie-single .movie-single-ct .mvcast-item .cast-it img {
+.pelicula-single .pelicula-single-ct .mvcast-item .cast-it img {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   margin-right: 15px;
 }
-.movie-single .movie-single-ct .mvcast-item .cast-it a {
+.pelicula-single .pelicula-single-ct .mvcast-item .cast-it a {
   color: #4280bf;
   margin-right: 100px;
 }
 @media (max-width: 767px) {
-  .movie-single .movie-single-ct .mvcast-item .cast-it a {
+  .pelicula-single .pelicula-single-ct .mvcast-item .cast-it a {
     margin-right: 30px;
   }
 }
-.movie-single .movie-single-ct .mvcast-item .cast-it a:hover {
+.pelicula-single .pelicula-single-ct .mvcast-item .cast-it a:hover {
   color: #dcf836;
 }
-.movie-single .movie-single-ct .mvcast-item .cast-it p {
+.pelicula-single .pelicula-single-ct .mvcast-item .cast-it p {
   margin-bottom: 0;
 }
-.movie-single .movie-single-ct .mv-user-review-item .no-star {
+.pelicula-single .pelicula-single-ct .mv-user-review-item .no-star {
   color: #f5b50a;
   font-size: #abb7c4;
 }
-.movie-single .movie-single-ct .mv-user-review-item .no-star i.last {
+.pelicula-single .pelicula-single-ct .mv-user-review-item .no-star i.last {
   color: #abb7c4;
 }
-.movie-single .movie-single-ct .tab.review .mv-user-review-item.last {
+.pelicula-single .pelicula-single-ct .tab.review .mv-user-review-item.last {
   border-bottom: 0;
 }
-.movie-single .sb-it {
+.pelicula-single .sb-it {
   margin-bottom: 30px;
   margin-left: 30px;
 }
 @media (max-width: 991px) {
-  .movie-single .sb-it {
+  .pelicula-single .sb-it {
     margin-top: 30px;
   }
 }
-.movie-single .sb-it h6 {
+.pelicula-single .sb-it h6 {
   font-family: "Dosis", sans-serif;
   font-size: 14px;
   color: #abb7c4;
@@ -6461,7 +6465,7 @@ ul {
   text-transform: capitalize;
   margin-bottom: 10px;
 }
-.movie-single .sb-it p.tags a {
+.pelicula-single .sb-it p.tags a {
   background-color: #233a50;
   color: #abb7c4;
   padding: 2px 5px;
@@ -6469,24 +6473,24 @@ ul {
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
-.movie-single .sb-it p.tags a:hover {
+.pelicula-single .sb-it p.tags a:hover {
   color: #dcf836;
 }
-.movie-single .ads {
+.pelicula-single .ads {
   margin-left: 30px;
 }
-.movie-single p a {
+.pelicula-single p a {
   color: #4280bf;
 }
-.movie-single p a:hover {
+.pelicula-single p a:hover {
   color: #dcf836;
 }
-.movie-single .sticky-sb {
+.pelicula-single .sticky-sb {
   position: relative;
   top: 0px;
 }
 @media (max-width: 991px) {
-  .movie-single .sticky-sb {
+  .pelicula-single .sticky-sb {
     max-width: 400px;
     margin: 0 auto 60px;
   }
@@ -7164,17 +7168,17 @@ p.ceb-single {
   align-items: center;
   justify-content: center;
 }
-.slider .movie-item {
+.slider .pelicula-item {
   margin-right: 15px;
 }
-.slider .movie-item .title-in {
+.slider .pelicula-item .title-in {
   margin-bottom: 45px;
 }
-.slider .movie-item .title-in h6 a {
+.slider .pelicula-item .title-in h6 a {
   font-size: 18px;
 }
-.slider .movie-item:hover .title-in,
-.slider .movie-item:hover img {
+.slider .pelicula-item:hover .title-in,
+.slider .pelicula-item:hover img {
   -webkit-transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
   -o-transition: all 0.5s ease-out;
@@ -7186,7 +7190,7 @@ p.ceb-single {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
   filter: alpha(opacity=100);
 }
-.slider .movie-item:hover h6 a {
+.slider .pelicula-item:hover h6 a {
   color: #dcf836;
 }
 .slider .social-link {
@@ -7221,7 +7225,7 @@ p.ceb-single {
     max-width: 300px;
     padding-top: 60;
   }
-  .slider .slick-multiItemSlider .movie-item {
+  .slider .slick-multiItemSlider .pelicula-item {
     margin-left: 5px;
   }
 }
@@ -7240,15 +7244,15 @@ p.ceb-single {
   padding-top: 180px;
   overflow: hidden;
 }
-.sliderv2 .movie-item .title-in {
+.sliderv2 .pelicula-item .title-in {
   text-align: left;
 }
 @media (max-width: 991px) {
-  .sliderv2 .movie-item .title-in {
+  .sliderv2 .pelicula-item .title-in {
     margin-left: 80px;
   }
 }
-.sliderv2 .movie-item .title-in h1 a {
+.sliderv2 .pelicula-item .title-in h1 a {
   font-family: "Dosis", sans-serif;
   font-size: 60px;
   color: #ffffff;
@@ -7256,42 +7260,42 @@ p.ceb-single {
   text-transform: uppercase;
   line-height: 60px;
 }
-.sliderv2 .movie-item .title-in h1 a span {
+.sliderv2 .pelicula-item .title-in h1 a span {
   font-family: "Dosis", sans-serif;
   font-size: 36px;
   color: #abb7c4;
   font-weight: 300;
   text-transform: uppercase;
 }
-.sliderv2 .movie-item .title-in p {
+.sliderv2 .pelicula-item .title-in p {
   font-size: 12px;
   color: #ffffff;
 }
-.sliderv2 .movie-item .title-in p i {
+.sliderv2 .pelicula-item .title-in p i {
   color: #f5b50a;
   font-size: 22px;
 }
-.sliderv2 .movie-item .title-in p span {
+.sliderv2 .pelicula-item .title-in p span {
   font-weight: 400;
   font-size: 18px;
 }
-.sliderv2 .movie-item .title-in .social-btn {
+.sliderv2 .pelicula-item .title-in .social-btn {
   margin-bottom: 15px;
 }
-.sliderv2 .movie-item .title-in .redbtn {
+.sliderv2 .pelicula-item .title-in .redbtn {
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   border-radius: 30px;
   width: 130px;
 }
-.sliderv2 .movie-item .title-in .redbtn:hover {
+.sliderv2 .pelicula-item .title-in .redbtn:hover {
   color: #ffffff;
 }
-.sliderv2 .movie-item .title-in .btn-transform:hover .hvrbtn {
+.sliderv2 .pelicula-item .title-in .btn-transform:hover .hvrbtn {
   background-color: #020d18;
   color: #dcf836;
 }
-.sliderv2 .movie-item .title-in .mv-details {
+.sliderv2 .pelicula-item .title-in .mv-details {
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
@@ -7300,7 +7304,7 @@ p.ceb-single {
   justify-content: flex-start;
   margin-bottom: 15px;
 }
-.sliderv2 .movie-item .title-in .mv-details ul {
+.sliderv2 .pelicula-item .title-in .mv-details ul {
   list-style-type: inherit;
   display: -webkit-flex;
   display: -moz-box;
@@ -7312,11 +7316,11 @@ p.ceb-single {
   margin-left: 30px;
   margin-top: 8px;
 }
-.sliderv2 .movie-item .title-in .mv-details ul li {
+.sliderv2 .pelicula-item .title-in .mv-details ul li {
   margin-right: 30px;
 }
 @media (max-width: 991px) {
-  .sliderv2 .movie-item .mv-img-2 {
+  .sliderv2 .pelicula-item .mv-img-2 {
     display: none;
   }
 }
@@ -7331,7 +7335,7 @@ p.ceb-single {
     max-width: 300px;
     padding-top: 0;
   }
-  .sliderv2 .slider-single-item .movie-item .title-in {
+  .sliderv2 .slider-single-item .pelicula-item .title-in {
     margin-left: 10px;
     margin-bottom: 15px;
   }
@@ -7376,16 +7380,16 @@ p.ceb-single {
     padding-top: 100px;
   }
 }
-.sliderv3 .movie-item .title-in {
+.sliderv3 .pelicula-item .title-in {
   width: 100%;
   position: relative;
 }
-.sliderv3 .movie-item .title-in .social-btn {
+.sliderv3 .pelicula-item .title-in .social-btn {
   border-bottom: 1px solid #405266;
   padding-bottom: 15px;
   width: 100%;
 }
-.sliderv3 .movie-item .title-in .mv-details {
+.sliderv3 .pelicula-item .title-in .mv-details {
   margin-bottom: 0;
 }
 @media (max-width: 991px) {
@@ -7520,7 +7524,7 @@ p.ceb-single {
 .buster-light p {
   color: #233a50;
 }
-.buster-light .movie-items,
+.buster-light .pelicula-items,
 .buster-light .latestnew {
   background-color: #fff;
 }
@@ -7665,81 +7669,96 @@ p.ceb-single {
 .buster-light .topbar-filter .pagination2 a:hover {
   color: #dd003f;
 }
-.buster-light .movie-item-style-2 .mv-item-infor h6 a {
+.buster-light .pelicula-item-style-2 .mv-item-infor h6 a {
   color: #020d18;
 }
-.buster-light .movie-item-style-2 .mv-item-infor .rate span {
+.buster-light .pelicula-item-style-2 .mv-item-infor .rate span {
   color: #020d18;
 }
-.buster-light .movie-item-style-2 .mv-item-infor .describe {
+.buster-light .pelicula-item-style-2 .mv-item-infor .describe {
   color: #233a50;
   border-color: #d0dae4;
 }
-.buster-light .movie-item-style-2 .mv-item-infor p {
+.buster-light .pelicula-item-style-2 .mv-item-infor p {
   color: #233a50;
 }
-.buster-light .movie-item-style-2 .mv-item-infor p a:hover {
+.buster-light .pelicula-item-style-2 .mv-item-infor p a:hover {
   color: #dd003f;
 }
-.buster-light .movie-item-style-2:hover h6 a {
+.buster-light .pelicula-item-style-2:hover h6 a {
   color: #dd003f;
 }
-.buster-light .movie-single .movie-single-ct .mvcast-item .cast-it p {
+.buster-light .pelicula-single .pelicula-single-ct .mvcast-item .cast-it p {
   color: #9ca9b7;
 }
-.buster-light .movie-single .movie-single-ct .mvcast-item .cast-it a:hover {
+.buster-light
+  .pelicula-single
+  .pelicula-single-ct
+  .mvcast-item
+  .cast-it
+  a:hover {
   color: #dd003f;
 }
 .buster-light
-  .movie-single
-  .movie-single-ct
+  .pelicula-single
+  .pelicula-single-ct
   .mvcast-item
   .cast-it
   .series-it
   a {
   color: #020d18;
 }
-.buster-light .movie-single .movie-single-ct .mvsingle-item .vd-infor h6 a {
+.buster-light
+  .pelicula-single
+  .pelicula-single-ct
+  .mvsingle-item
+  .vd-infor
+  h6
+  a {
   color: #020d18;
 }
 .buster-light
-  .movie-single
-  .movie-single-ct
+  .pelicula-single
+  .pelicula-single-ct
   .mvsingle-item
   .vd-item:hover
   h6
   a {
   color: #dd003f;
 }
-.buster-light .movie-single .movie-single-ct .tab h3 {
+.buster-light .pelicula-single .pelicula-single-ct .tab h3 {
   color: #020d18;
 }
-.buster-light .movie-single .movie-single-ct .tab .rv-hd h3 {
+.buster-light .pelicula-single .pelicula-single-ct .tab .rv-hd h3 {
   color: #9ca9b7;
 }
-.buster-light .movie-single .movie-single-ct .tab.review .mv-user-review-item {
+.buster-light
+  .pelicula-single
+  .pelicula-single-ct
+  .tab.review
+  .mv-user-review-item {
   border-color: #d0dae4;
 }
-.buster-light .movie-single p.time:not(a) {
+.buster-light .pelicula-single p.time:not(a) {
   color: #9ca9b7;
 }
-.buster-light .movie-single p a:hover {
+.buster-light .pelicula-single p a:hover {
   color: #dd003f;
 }
-.buster-light .movie-single .sb-it h6 {
+.buster-light .pelicula-single .sb-it h6 {
   color: #020d18;
 }
-.buster-light .movie-single .sb-it p {
+.buster-light .pelicula-single .sb-it p {
   color: #9ca9b7;
 }
 .buster-light .tabs ul.tabs-mv li.active a,
 .buster-light .tabs ul.tabs-mv li:hover a {
   color: #dcf836;
 }
-.buster-light .tabs .movie-item-style-2 .mv-item-infor .describe {
+.buster-light .tabs .pelicula-item-style-2 .mv-item-infor .describe {
   color: #020d18;
 }
-.buster-light .tabs .movie-item-style-2 .mv-item-infor p:not(a) {
+.buster-light .tabs .pelicula-item-style-2 .mv-item-infor p:not(a) {
   color: #9ca9b7;
 }
 .buster-light .title-hd-sm {
@@ -7860,10 +7879,10 @@ p.ceb-single {
 .buster-light .blog-detail-ct .comment-form form textarea:not(.submit):hover {
   border-color: #dd003f;
 }
-.buster-light .userfav_list .movie-item-style-2 .mv-item-infor .describe {
+.buster-light .userfav_list .pelicula-item-style-2 .mv-item-infor .describe {
   color: #020d18;
 }
-.buster-light .userfav_list .movie-item-style-2 .mv-item-infor p:not(a) {
+.buster-light .userfav_list .pelicula-item-style-2 .mv-item-infor p:not(a) {
   color: #9ca9b7;
 }
 .buster-light .user-information {

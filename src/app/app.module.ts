@@ -12,7 +12,7 @@ import { UserModule } from './user/user.module';
 // // used to create fake backend
 // import { fakeBackendProvider } from './_helpers';
 import { ProductModule } from './products/product.module';
-import { MovieModule } from './cartelera/movie.module'
+import { PeliculaModule } from './pelicula/pelicula.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,7 +30,7 @@ import { MovieModule } from './cartelera/movie.module'
     HomeModule,
     UserModule,
     ProductModule,
-    MovieModule,
+    PeliculaModule,
 
     // al final el gestor de las rutas principal
     AppRoutingModule,

@@ -6,17 +6,18 @@ import { ProductService } from './product.service';
 
 @Component({
   templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css']
+  styleUrls: ['./product-detail.component.css'],
 })
 export class ProductDetailComponent implements OnInit {
   pageTitle = 'Product Detail';
-  errorMessage = '';
+  error = '';
   product: IProduct | undefined;
 
-  constructor(private route: ActivatedRoute,
-              private router: Router,
-              private productService: ProductService) {
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private productService: ProductService
+  ) {}
 
   ngOnInit() {
     const param = this.route.snapshot.paramMap.get('id');
@@ -28,8 +29,8 @@ export class ProductDetailComponent implements OnInit {
 
   getProduct(id: number) {
     this.productService.getProduct(id).subscribe({
-      next: product => this.product = product,
-      error: err => this.errorMessage = err
+      next: (product) => (this.product = product),
+      error: (err) => (this.error = err),
     });
   }
 

@@ -14,7 +14,7 @@ export class AuthenticationService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
   //URL del API
-  ServerUrl = environment.apiUrl;
+  ServerUrl = environment.apiURL;
   //Variable observable para gestionar la información del usuario, con características especiales
   private currentUserSubject: BehaviorSubject<any>;
   //Variable observable para gestionar la información del usuario

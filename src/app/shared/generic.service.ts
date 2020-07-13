@@ -11,7 +11,7 @@ import { AuthenticationService } from './authentication.service';
 })
 export class GenericService {
   // URL del API, definida en enviroments->enviroment.ts
-  urlAPI: string = environment.apiUrl;
+  urlAPI: string = environment.apiURL;
   //Información usuario actual
   currentUser: any;
   //Headers a inclur en las solicitudes, opcional, solo cuando es necesario
