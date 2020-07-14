@@ -184,7 +184,7 @@ https://flickity.metafizzy.co
 .flickity-page-dots .dot.is-selected {
   opacity: 1;
 }
-.product-detail-close {
+.producto-detail-close {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -217,7 +217,7 @@ https://flickity.metafizzy.co
   height: 100vh;
 }
 
-.product-detail {
+.producto-detail {
   position: fixed;
   top: 0;
   left: 0;
@@ -230,7 +230,7 @@ https://flickity.metafizzy.co
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-.product-detail-inner {
+.producto-detail-inner {
   display: flex;
   background-color: white;
   width: 75vw;
@@ -240,12 +240,12 @@ https://flickity.metafizzy.co
   overflow-y: auto;
 }
 
-.product-detail-image {
+.producto-detail-image {
   flex: 0 1 30%;
   padding: 15px;
 }
 
-.product-detail-image img {
+.producto-detail-image img {
   width: 100%;
 }
 

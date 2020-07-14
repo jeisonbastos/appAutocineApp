@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { IProduct } from './product';
-import { ProductService } from './product.service';
+import { IProducto } from '../producto';
+import { ProductService } from '../producto.service';
 
 @Component({
-  templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css'],
+  templateUrl: './producto-detail.component.html',
+  styleUrls: ['./producto-detail.component.css'],
 })
-export class ProductDetailComponent implements OnInit {
+export class ProductoDetailComponent implements OnInit {
   pageTitle = 'Product Detail';
   error = '';
-  product: IProduct | undefined;
+  producto: IProducto | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,12 +29,12 @@ export class ProductDetailComponent implements OnInit {
 
   getProduct(id: number) {
     this.productService.getProduct(id).subscribe({
-      next: (product) => (this.product = product),
+      next: (producto) => (this.producto = producto),
       error: (err) => (this.error = err),
     });
   }
 
   onBack(): void {
-    this.router.navigate(['/products']);
+    this.router.navigate(['/producto']);
   }
 }

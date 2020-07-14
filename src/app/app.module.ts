@@ -11,7 +11,7 @@ import { UserModule } from './user/user.module';
 // import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 // // used to create fake backend
 // import { fakeBackendProvider } from './_helpers';
-import { ProductModule } from './products/product.module';
+import { ProductModule } from './products/producto.module';
 import { PeliculaModule } from './pelicula/pelicula.module';
 
 @NgModule({

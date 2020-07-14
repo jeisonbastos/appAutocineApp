@@ -4,12 +4,15 @@ import { Subject } from 'rxjs';
 import { GenericService } from 'src/app/shared/generic.service';
 import { NotificacionService } from 'src/app/shared/notificacion.service';
 import { IPelicula } from '../pelicula';
-import { PeliculaService } from '../pelicula.service';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
   templateUrl: './pelicula-detail.component.html',
-  styleUrls: ['./pelicula-detail.component.css'],
+  styleUrls: [
+    './pelicula-detail.component.css',
+    '../../../assets/css/style.css',
+    '../../../assets/css/plugins.css',
+  ],
 })
 export class PeliculaDetailComponent implements OnInit {
   pageTitle = 'Detalle de la Pelilcula';

@@ -4316,22 +4316,74 @@ ul {
   font-weight: 700;
   text-transform: uppercase;
 }
+
+/*Accion*/
+.cate .blck_red {
+  background-color: black;
+  color: #ec1a1a;
+  border-color: #ec1a1a;
+}
+
+/*Ciencia Ficcion*/
 .cate .blue {
   background-color: #1692bb;
 }
+/*Comedia*/
 .cate .yell {
   background-color: #f5b50a;
 }
+/*Drama*/
 .cate .green {
   background-color: #a6bb16;
 }
+/*Animadas*/
 .cate .orange {
   background-color: #ec5a1a;
 }
+
+/*Fantasía*/
+.cate .pink {
+  background-color: #ec1ae1;
+}
+
+/*Melodrama*/
+.cate .gray {
+  background-color: #8a818a;
+}
+
+/*Musical*/
+.cate .purple {
+  background-color: #6d0568;
+}
+
+/*Romance*/
+.cate .red {
+ background-color: #ec1a1a;
+}
+
+/*Suspenso*/
+.cate .brwn {
+  background-color: #301f01;
+}
+
+/*Terror*/
+.cate .blck_yll {
+  background-color: black;
+  color: #d9e70a;
+  border-color: #d9e70a;
+}
+
+/*Documental*/
+.cate .wth_blu {
+  background-color: white;
+  color: #2909dd;
+  border-color: #2909dd;
+}
+
 .pelicula_list .pelicula-item-style-2 img,
 .pelicula_single .pelicula-item-style-2 img,
 .userfav_list .pelicula-item-style-2 img {
-  width: 30%;
+  width: 60%;
 }
 @media (max-width: 767px) {
   .pelicula_list .pelicula-item-style-2 img,
@@ -5959,7 +6011,7 @@ ul {
   align-items: center;
   justify-content: flex-start;
 }
-@media (max-width: 767px) {
+@media (max-width: 800px) {
   .social-btn {
     display: flex;
     flex-direction: column;
@@ -5972,7 +6024,7 @@ ul {
   color: #dd003f;
   font-weight: bold;
   text-transform: uppercase;
-  margin-right: 35px;
+  margin-right: 25px;
 }
 @media (max-width: 767px) {
   .social-btn a.parent-btn {

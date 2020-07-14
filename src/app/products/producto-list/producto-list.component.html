@@ -1,4 +1,4 @@
-<div class="continer" id="products">
+<div class="continer" id="producto">
   <div class="row" style="height: 120px;"></div>
   <div class="card col-md-10 offset-md-1 mt-2">
     <div class="card-header">
@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="table-responsive">
-        <table class="table" *ngIf="products && products.length">
+        <table class="table" *ngIf="producto && producto.length">
           <thead>
             <tr>
               <th>
@@ -33,30 +33,30 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let product of filteredProducts">
+            <tr *ngFor="let producto of filteredProductos">
               <td>
                 <img
                   *ngIf="showImage"
-                  [src]="product.imageURL"
-                  [title]="product.productName"
+                  [src]="producto.imagenURL"
+                  [title]="producto.nombre"
                   [style.width.px]="imageWidth"
                   [style.margin.px]="imageMargin"
                 />
               </td>
               <td>
-                <a [routerLink]="['/products', product.productId]">
-                  {{ product.productName }}
+                <a [routerLink]="['/producto', producto.id]">
+                  {{ producto.nombre }}
                 </a>
               </td>
-              <!-- <td>{{ product.productCode | lowercase | convertToSpaces:'-' }}</td> -->
-              <td>{{ product.releaseDate }}</td>
-              <td>{{ product.precio | currency: "USD":"symbol":"1.2-2" }}</td>
+              <!-- <td>{{ producto.descripcion | lowercase | convertToSpaces:'-' }}</td> -->
+              <td>{{ producto.product_type_id }}</td>
+              <td>{{ producto.precio | currency: "CRC":"symbol":"1.2-2" }}</td>
               <td>
-                <pm-star
-                  [rating]="product.puntuacion"
+                <!-- <pm-star
+                  [rating]="producto.puntuacion"
                   (ratingClicked)="onRatingClicked($event)"
                 >
-                </pm-star>
+                </pm-star> -->
               </td>
             </tr>
           </tbody>

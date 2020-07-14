@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { IProduct } from './product';
-import { ProductService } from './product.service';
+import { IProducto } from '../producto';
+import { ProductService } from '../producto.service'
 
 @Component({
   templateUrl: './product-list.component.html',
@@ -22,11 +22,11 @@ export class ProductListComponent implements OnInit {
     this._listFilter = value;
     this.filteredProducts = this.listFilter
       ? this.performFilter(this.listFilter)
-      : this.products;
+      : this.producto;
   }
 
-  filteredProducts: IProduct[] = [];
-  products: IProduct[] = [];
+  filteredProducts: IProducto[] = [];
+  producto: IProducto[] = [];
 
   constructor(private productService: ProductService) {}
 
@@ -34,11 +34,11 @@ export class ProductListComponent implements OnInit {
     this.pageTitle = 'Product List: ' + message;
   }
 
-  performFilter(filterBy: string): IProduct[] {
+  performFilter(filterBy: string): IProducto[] {
     filterBy = filterBy.toLocaleLowerCase();
-    return this.products.filter(
-      (product: IProduct) =>
-        product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1
+    return this.producto.filter(
+      (producto: IProducto) =>
+        producto.nombre.toLocaleLowerCase().indexOf(filterBy) !== -1
     );
   }
 
@@ -48,9 +48,9 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe({
-      next: (products) => {
-        this.products = products;
-        this.filteredProducts = this.products;
+      next: (producto) => {
+        this.producto = producto;
+        this.filteredProducts = this.producto;
       },
       error: (err) => (this.error = err),
     });

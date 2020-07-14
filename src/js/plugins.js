@@ -29178,7 +29178,7 @@ if ("undefined" == typeof jQuery)
           function (t, e, n) {
             function r(t) {
               t.params({
-                productName: { required: !0 },
+                nombre: { required: !0 },
                 dataSource: { required: !1 },
                 related: { required: !1 },
                 partner: { fallback: d(o.val, o, "partner") },
@@ -29195,7 +29195,7 @@ if ("undefined" == typeof jQuery)
                     (t.href = u.url(t.href, {
                       tw_w: this.params.dataSource && this.params.dataSource.id,
                       tw_i: n && n.getAttribute("data-tweet-id"),
-                      tw_p: this.params.productName,
+                      tw_p: this.params.nombre,
                       related: this.params.related,
                       partner: this.params.partner,
                       query: e && e.getAttribute("data-search-query"),

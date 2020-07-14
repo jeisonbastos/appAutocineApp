@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="hero-ct">
-          <h1>{{ pageTitle + ": " + pelicula.nombre }}</h1>
+          <h1>{{ pageTitle + ": " + producto.nombre }}</h1>
           <!-- <ul class="breadcumb">
               <li class="active"><a href="#">Funciones</a></li>
               <li><span class="ion-ios-arrow-right">Cartelera</span></li>
@@ -16,33 +16,32 @@
 </div>
 <div class="page-single pelicula_list">
   <div class="container">
-    <div class="pelicula-item-style-2" *ngIf="pelicula">
+    <div class="producto-item-style-2" *ngIf="producto">
       <div class="card-header"></div>
       <div class="container">
-        <div class="pelicula-item">
+        <div class="producto-item">
           <div class="row">
             <div class="col-md-8 col-sm-12 col-xs-12">
               <div class="title-in">
-                <div class="cate" *ngFor="let generos of pelicula.genders">
-                  <span [class]="generos.color"
-                    ><a href="#">{{ generos.nombre }}</a></span
+                <div
+                  class="cate"
+                  *ngFor="let clasificacion of producto.classifications"
+                >
+                  <span class="yell"
+                    ><a href="#">{{ clasificacion.nombre }}</a></span
                   >
                 </div>
                 <h1>
-                  <a href="#">{{ pelicula.nombre }}<br /></a>
+                  <a href="#">{{ producto.nombre }}<br /></a>
                 </h1>
                 <div class="mv-details">
-                  <pm-star [rating]="pelicula.puntuacion"
-                    >{{ pelicula.puntuacion }}
-                  </pm-star>
                   <ul class="mv-infor">
-                    <li>Duración: 2h21’</li>
-                    <li>Clasificación: {{ pelicula.classification.siglas }}</li>
+                    <li>Tipo de Producto: {{ producto.product_type_id }}</li>
+                    <li>Tamaño: {{ producto.tamano_presentacion }}</li>
                     <li>
-                      Sinopsis:
-                      <p class="describe">{{ pelicula.sinopsis }}</p>
+                      Descripción:
+                      <p class="describe">{{ producto.descripcion }}</p>
                     </li>
-                    <li>Habilitada: {{ pelicula.habilitada }}</li>
                   </ul>
                 </div>
               </div>
@@ -54,8 +53,8 @@
                     class="center-block img-responsive"
                     [style.width.px]="200"
                     [style.margin.px]="2"
-                    [src]="pelicula.imagenURL"
-                    [title]="pelicula.nombre"
+                    [src]="producto.imagenURL"
+                    [title]="producto.nombre"
                 /></a>
               </div>
             </div>

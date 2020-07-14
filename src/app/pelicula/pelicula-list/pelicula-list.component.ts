@@ -9,7 +9,9 @@ import { IClasificacion } from '../clasificacion';
 
 @Component({
   templateUrl: './pelicula-list.component.html',
-  styleUrls: ['./pelicula-list.component.css'],
+  styleUrls: ['./pelicula-list.component.css', 
+              '../../../assets/css/style.css',
+              '../../../assets/css/plugins.css',],
 })
 export class PeliculaListComponent implements OnInit {
   pageTitle = 'Lista de Películas';

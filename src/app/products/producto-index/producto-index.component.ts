@@ -3,18 +3,21 @@ import { GenericService } from 'src/app/shared/generic.service';
 import { NotificacionService } from 'src/app/shared/notificacion.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { IPelicula } from '../pelicula';
-import { IClasificacion } from '../clasificacion';
-import { IGenero } from '../genero';
+import { IProducto } from '../producto';
+import { IProductoTipo } from '../producto-tipo';
+import { IProductoClasificacion } from '../producto-clasificacion';
+import { ProductService } from '../producto.service';
 
 @Component({
-  templateUrl: './pelicula-index.component.html',
-  styleUrls: ['./pelicula-index.component.css',
-                '../../../assets/css/style.css',
-                '../../../assets/css/plugins.css',],
+  templateUrl: './producto-index.component.html',
+  styleUrls: [
+    './producto-index.component.css',
+    '../../../assets/css/style.css',
+    '../../../assets/css/plugins.css',
+  ],
 })
-export class PeliculaIndexComponent implements OnInit {
-  pageTitle = 'Películas Habilitadas';
+export class ProductoIndexComponent implements OnInit {
+  pageTitle = 'Productos Disponibles';
   imageWidth = 50;
   imageMargin = 2;
   imageUrl = '';
@@ -29,17 +32,16 @@ export class PeliculaIndexComponent implements OnInit {
   }
   set listFilter(value: string) {
     this._listFilter = value;
-    this.filteredpeliculas = this.listFilter
+    this.filteredProductos = this.listFilter
       ? this.performFilter(this.listFilter)
-      : this.peliculas;
+      : this.producto;
   }
 
-  filteredpeliculas: IPelicula[] = [];
-  peliculas: IPelicula[] = [];
-  clasificacion: IClasificacion;
-  generos: IGenero[] = [];
-  total_generos: number; 
-  clasificacion_siglas: '';
+  filteredProductos: IProducto[] = [];
+  producto: IProducto[] = [];
+  clasificaciones: IProductoClasificacion[] = [];
+  tipo_producto: IProductoTipo;
+  total_clasificaciones: number;
 
   constructor(
     private gService: GenericService,
@@ -50,11 +52,11 @@ export class PeliculaIndexComponent implements OnInit {
     this.pageTitle = 'Lista de Películas Habilitadas: ' + message;
   }
 
-  performFilter(filterBy: string): IPelicula[] {
+  performFilter(filterBy: string): IProducto[] {
     filterBy = filterBy.toLocaleLowerCase();
-    return this.peliculas.filter(
-      (pelicula: IPelicula) =>
-        pelicula.nombre.toLocaleLowerCase().indexOf(filterBy) !== -1
+    return this.producto.filter(
+      (producto: IProducto) =>
+        producto.nombre.toLocaleLowerCase().indexOf(filterBy) !== -1
     );
   }
 
@@ -64,14 +66,14 @@ export class PeliculaIndexComponent implements OnInit {
 
   ngOnInit(): void {
     this.gService
-      .list('pelicula/')
+      .list('producto/')
       .pipe(takeUntil(this.destroy$))
       .subscribe(
-        (peliculas: any) => {
-          // console.log(peliculas);
-          this.peliculas = peliculas;
-          this.filteredpeliculas = this.peliculas;
-          this.getGenders();
+        (productos: any) => {
+          // console.log(productos);
+          this.producto = productos;
+          this.filteredProductos = this.producto;
+          this.getClasifications();
         },
         (error: any) => {
           this.notificacion.mensaje(error.message, error.name, 'error');
@@ -79,15 +81,15 @@ export class PeliculaIndexComponent implements OnInit {
       );
   }
 
-  getGenders(): void {
+  getClasifications(): void {
     this.gService
-      .list('genero/all')
+      .list('clasificacion producto/all')
       .pipe(takeUntil(this.destroy$))
       .subscribe(
-        (generos: any) => {
-          // console.log(peliculas);
-          this.generos = generos;
-          this.total_generos = generos.count();
+        (clasificacion: any) => {
+          // console.log(productos);
+          this.clasificaciones = clasificacion;
+          this.total_clasificaciones = clasificacion.count();
         },
         (error: any) => {
           this.notificacion.mensaje(error.message, error.name, 'error');

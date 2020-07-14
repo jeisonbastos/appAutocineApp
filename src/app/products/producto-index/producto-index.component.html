@@ -14,7 +14,7 @@
     </div>
   </div>
 </div>
-<div class="page-single pelicula_list">
+<div class="page-single productos_list">
   <div class="container">
     <div class="row ipad-width2" style="padding: 0 10px 0 10 px;">
       <div class="col-md-8 col-sm-12 col-xs-12">
@@ -24,8 +24,8 @@
           ></a>
         </div>
         <div
-          class="pelicula-item-style-2"
-          *ngFor="let pelicula of filteredpeliculas"
+          class="productos-item-style-2"
+          *ngFor="let producto of filteredProductos"
         >
           <div class="row">
             <div class="col-md-4 col-sm-12 col-xs-12">
@@ -33,22 +33,22 @@
                 <a href=""
                   ><img
                     *ngIf="showImage"
-                    [src]="pelicula.imagenURL"
-                    [title]="pelicula.nombre"
+                    [src]="producto.imagenURL"
+                    [title]="producto.nombre"
                     [style.width.px]="200"
                     [style.margin.px]="imageMargin"
                 /></a>
               </div>
             </div>
             <div class="col-md-8 col-sm-12 col-xs-12 title-in">
-              <div class="cate" *ngFor="let generos of pelicula.genders">
-                <span [class]="generos.color"
-                  ><a href="#">{{ generos.nombre }}</a></span
+              <div class="cate" *ngFor="let clasificacion of clasificaciones">
+                <span class="blue"
+                  ><a href="#">{{ clasificacion.nombre }}</a></span
                 >
               </div>
               <h1>
                 <a href="#"
-                  >{{ pelicula.nombre }}<br />
+                  >{{ producto.nombre }}<br />
                   <!-- <span>2015</span>--></a
                 >
               </h1>
@@ -80,29 +80,29 @@
                 </div>
               </div>
               <div class="mv-details">
-                <pm-star
-                  [rating]="pelicula.puntuacion"
+                <!-- <pm-star
+                  [rating]="producto.puntuacion"
                   (ratingClicked)="onRatingClicked($event)"
-                  >{{ pelicula.puntuacion }}
-                </pm-star>
+                  >{{ productos.puntuacion }}
+                </pm-star> -->
 
                 <ul class="mv-infor">
                   <li>Duración: 2h21’</li>
-                  <li>Clasificación: {{ pelicula.classification.siglas }}</li>
+                  <li>Tipo de Producto: {{ producto.tipo_producto }}</li>
                   <!-- <li>Release: 1 May 2015</li> -->
                 </ul>
               </div>
             </div>
             <div class="mv-item-infor" style="margin: 0 2% 0 2%;">
-              <p class="describe">{{ pelicula.sinopsis }}</p>
+              <p class="describe">{{ producto.descripcion }}</p>
             </div>
           </div>
         </div>
         <div class="topbar-filter">
-          <label>peliculas per page:</label>
+          <label>productos per page:</label>
           <select>
-            <option value="range">5 peliculas</option>
-            <option value="saab">10 peliculas</option>
+            <option value="range">5 productos</option>
+            <option value="saab">10 productos</option>
           </select>
           <div class="pagination2">
             <span>Page 1 of 2:</span>
@@ -115,22 +115,22 @@
       <div class="col-md-4 col-sm-12 col-xs-12">
         <div class="sidebar">
           <div class="searh-form">
-            <h4 class="sb-title">Búsqueda por Película</h4>
+            <h4 class="sb-title">Búsqueda por Producto</h4>
             <form class="form-style-1" action="#">
               <div class="row">
                 <div class="col-md-12 form-it">
-                  <input type="text" [(ngModel)]="listFilter" />
+                  <input type="text"  [(ngModel)]="listFilter" />
                 </div>
                 <div class="col-md-12 form-it">
                   <label>Géneros</label>
                   <div class="group-ip">
                     <select name="skills" multiple="" class="ui fluid dropdown">
-                      <option value="">Filtro por Géneros</option>
+                      <option value="">Filtro por Clasificaciones</option>
                       <option
-                        *ngFor="let genero of generos"
-                        [value]="genero.id"
+                        *ngFor="let clasificacion of clasificaciones"
+                        [value]="clasificacion.id"
                       >
-                        {{ genero.nombre }}
+                        {{ clasificacion.nombre }}
                       </option>
                     </select>
                   </div>

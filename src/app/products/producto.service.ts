@@ -2,30 +2,30 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
-import { IPelicula } from './pelicula';
+
+import { IProducto } from './producto';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PeliculaService {
+export class ProductService {
   // If using Stackblitz, replace the url with this line
   // because Stackblitz can't find the api folder.
-  private peliculaUrl = environment.apiURL;
-  //private peliculaUrl = '/api/peliculas/peliculas.json';
+  private productUrl = 'assets/producto/producto.json';
+  //private productUrl = '/api/producto/producto.json';
 
   constructor(private http: HttpClient) {}
 
-  getPeliculas(): Observable<IPelicula[]> {
-    return this.http.get<IPelicula[]>(this.peliculaUrl).pipe(
+  getProducts(): Observable<IProducto[]> {
+    return this.http.get<IProducto[]>(this.productUrl).pipe(
       tap((data) => console.log('All: ' + JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
 
-  getPelicula(id: number): Observable<IPelicula | undefined> {
-    return this.getPeliculas().pipe(
-      map((peliculas: IPelicula[]) => peliculas.find((p) => p.id === id))
+  getProduct(id: number): Observable<IProducto | undefined> {
+    return this.getProducts().pipe(
+      map((producto: IProducto[]) => producto.find((p) => p.id === id))
     );
   }
 
