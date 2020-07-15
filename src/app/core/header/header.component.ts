@@ -13,7 +13,9 @@ import { UserService, AuthenticationService } from '../../_services';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+  styleUrls: ['./header.component.css',
+    '../../../assets/css/style.css',
+    '../../../assets/css/plugins.css',],
 })
 export class HeaderComponent implements OnInit {
   private listTitles: any['Autocine'];
