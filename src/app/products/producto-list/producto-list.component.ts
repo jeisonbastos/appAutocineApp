@@ -7,15 +7,18 @@ import { takeUntil } from 'rxjs/operators';
 import { IProducto } from '../producto';
 import { IProductoTipo } from '../producto-tipo';
 import { IProductoClasificacion } from '../producto-clasificacion';
-import { ProductService } from '../producto.service';
 
 @Component({
   templateUrl: './producto-list.component.html',
-  styleUrls: ['./producto-list.component.css'],
+  styleUrls: [
+    './producto-list.component.css',
+    '../../../assets/css/style.css',
+    '../../../assets/css/plugins.css',
+  ],
 })
 export class ProductoListComponent implements OnInit {
   pageTitle = 'Lista de Productos';
-  imageWidth = 50;
+  imageWidth = 100;
   imageMargin = 2;
   imageUrl = '';
   showImage = true;
@@ -36,7 +39,7 @@ export class ProductoListComponent implements OnInit {
 
   filteredProductos: IProducto[] = [];
   producto: IProducto[] = [];
-  clasificaciones: IProductoClasificacion[] = [];
+  clasificacion: IProductoClasificacion[] = [];
   tipo_producto: IProductoTipo;
   total_clasificaciones: number;
 
@@ -80,12 +83,12 @@ export class ProductoListComponent implements OnInit {
 
   getClasifications(): void {
     this.gService
-      .list('clasificacion producto/all')
+      .list('clasificacion/all')
       .pipe(takeUntil(this.destroy$))
       .subscribe(
         (clasificacion: any) => {
           // console.log(productos);
-          this.clasificaciones = clasificacion;
+          this.clasificacion = clasificacion;
           this.total_clasificaciones = clasificacion.count();
         },
         (error: any) => {

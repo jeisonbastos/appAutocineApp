@@ -9,6 +9,6 @@ export interface IProducto {
   tamano_presentacion: number;
   precio: number;
   imagenURL: string;
-  tipo_producto: IProductoTipo;
+  product_type: IProductoTipo;
   classifications: IProductoClasificacion[];
 }

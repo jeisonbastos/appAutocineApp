@@ -11,7 +11,7 @@ import { UserModule } from './user/user.module';
 // import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 // // used to create fake backend
 // import { fakeBackendProvider } from './_helpers';
-import { ProductModule } from './products/producto.module';
+import { ProductoModule } from './products/producto.module';
 import { PeliculaModule } from './pelicula/pelicula.module';
 
 @NgModule({
@@ -29,7 +29,7 @@ import { PeliculaModule } from './pelicula/pelicula.module';
     // después los demás módulos
     HomeModule,
     UserModule,
-    ProductModule,
+    ProductoModule,
     PeliculaModule,
 
     // al final el gestor de las rutas principal

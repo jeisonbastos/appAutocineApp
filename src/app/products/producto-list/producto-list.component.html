@@ -1,9 +1,21 @@
-<div class="continer" id="producto">
-  <div class="row" style="height: 120px;"></div>
-  <div class="card col-md-10 offset-md-1 mt-2">
-    <div class="card-header">
-      {{ pageTitle }}
+<div class="hero common-hero">
+  <div class="container">
+    <!-- <div class="row" style="height: 120px;"></div> -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="hero-ct">
+          <h1>{{ pageTitle }}</h1>
+          <!-- <ul class="breadcumb">
+            <li class="active"><a href="#">Funciones</a></li>
+            <li><span class="ion-ios-arrow-right">Cartelera</span></li>
+          </ul> -->
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+<div class="page-single pelicula_list">
+  <div class="container">
     <div class="card-body">
       <div class="row">
         <div class="col-md-2">Filter by:</div>
@@ -20,16 +32,13 @@
         <table class="table" *ngIf="producto && producto.length">
           <thead>
             <tr>
-              <th>
-                <button class="btn btn-primary" (click)="toggleImage()">
-                  {{ showImage ? "Hide" : "Show" }} Image
-                </button>
-              </th>
-              <th>Product</th>
-              <th>Code</th>
-              <th>Available</th>
+              <th></th>
+              <th>Producto</th>
+              <th>Tipo</th>
+              <th>Clasificaciones</th>
+              <th>Descripción</th>
+              <th>Tamaño</th>
               <th>Precio</th>
-              <th>5 Star Rating</th>
             </tr>
           </thead>
           <tbody>
@@ -48,16 +57,15 @@
                   {{ producto.nombre }}
                 </a>
               </td>
-              <!-- <td>{{ producto.descripcion | lowercase | convertToSpaces:'-' }}</td> -->
-              <td>{{ producto.product_type_id }}</td>
-              <td>{{ producto.precio | currency: "CRC":"symbol":"1.2-2" }}</td>
+              <td>{{ producto.product_type.nombre }}</td>
               <td>
-                <!-- <pm-star
-                  [rating]="producto.puntuacion"
-                  (ratingClicked)="onRatingClicked($event)"
-                >
-                </pm-star> -->
+                <ul *ngFor="let clasificacion of producto.classifications">
+                  <li>{{ clasificacion.nombre }}</li>
+                </ul>
               </td>
+              <td>{{ producto.descripcion }}</td>
+              <td>{{ producto.tamano_presentacion }}</td>
+              <td>{{ producto.precio | currency: "CRC":"symbol":"1.2-2" }}</td>
             </tr>
           </tbody>
         </table>

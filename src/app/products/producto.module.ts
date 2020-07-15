@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ProductoIndexComponent } from './producto-index/producto-index.component'
+import { ProductoIndexComponent } from './producto-index/producto-index.component';
 import { ProductoListComponent } from './producto-list/producto-list.component';
 import { ProductoDetailComponent } from './producto-detail/producto-detail.component';
 import { ConvertToSpacesPipe } from '../shared/convert-to-spaces.pipe';
@@ -27,4 +27,4 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule,
   ],
 })
-export class ProductModule {}
+export class ProductoModule {}

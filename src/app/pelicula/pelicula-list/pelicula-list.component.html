@@ -50,13 +50,14 @@
           <tbody>
             <tr *ngFor="let pelicula of filteredpeliculas">
               <td>
+                <a [routerLink]="['/peliculas', pelicula.id]">
                 <img
                   *ngIf="showImage"
                   [src]="pelicula.imagenURL"
                   [title]="pelicula.nombre"
                   [style.width.px]="200"
                   [style.margin.px]="imageMargin"
-                />
+                /></a>
               </td>
               <td>
                 <a [routerLink]="['/peliculas', pelicula.id]">

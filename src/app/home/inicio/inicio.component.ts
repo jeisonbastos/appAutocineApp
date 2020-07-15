@@ -14,6 +14,7 @@ import { UserService, AuthenticationService } from '../../_services';
   ],
 })
 export class InicioComponent {
+  pageTitle = 'Autocine';
   ngOnInit(): void {}
 }
 

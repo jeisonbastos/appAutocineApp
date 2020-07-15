@@ -96,7 +96,13 @@ import { first } from 'rxjs/operators';
 
 import { AuthenticationService } from '../../_services/authentication.service';
 
-@Component({ templateUrl: 'login.component.html' })
+@Component({
+  templateUrl: 'login.component.html',
+  styleUrls: [
+    '../../../assets/css/style.css',
+    '../../../assets/css/plugins.css',
+  ],
+})
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
@@ -105,7 +111,7 @@ export class LoginComponent implements OnInit {
   error = '';
   user: any;
 
-  constructor(){}
+  constructor() {}
 
   ngOnInit() {}
 

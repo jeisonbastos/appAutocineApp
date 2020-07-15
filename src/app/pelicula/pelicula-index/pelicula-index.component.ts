@@ -9,9 +9,11 @@ import { IGenero } from '../genero';
 
 @Component({
   templateUrl: './pelicula-index.component.html',
-  styleUrls: ['./pelicula-index.component.css',
-                '../../../assets/css/style.css',
-                '../../../assets/css/plugins.css',],
+  styleUrls: [
+    './pelicula-index.component.css',
+    '../../../assets/css/style.css',
+    '../../../assets/css/plugins.css',
+  ],
 })
 export class PeliculaIndexComponent implements OnInit {
   pageTitle = 'Películas Habilitadas';
@@ -38,7 +40,7 @@ export class PeliculaIndexComponent implements OnInit {
   peliculas: IPelicula[] = [];
   clasificacion: IClasificacion;
   generos: IGenero[] = [];
-  total_generos: number; 
+  total_generos: number;
   clasificacion_siglas: '';
 
   constructor(

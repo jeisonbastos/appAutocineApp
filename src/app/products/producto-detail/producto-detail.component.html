@@ -21,7 +21,7 @@
       <div class="container">
         <div class="producto-item">
           <div class="row">
-            <div class="col-md-8 col-sm-12 col-xs-12">
+            <div class="col-md-6 col-sm-12 col-xs-12">
               <div class="title-in">
                 <div
                   class="cate"
@@ -36,7 +36,7 @@
                 </h1>
                 <div class="mv-details">
                   <ul class="mv-infor">
-                    <li>Tipo de Producto: {{ producto.product_type_id }}</li>
+                    <li>Tipo de Producto: {{ producto.product_type.nombre }}</li>
                     <li>Tamaño: {{ producto.tamano_presentacion }}</li>
                     <li>
                       Descripción:
@@ -62,10 +62,10 @@
         </div>
         <div class="btn-transform transform-vertical">
           <div>
-            <a href="/peliculas/lista" class="item item-1 redbtn">Atrás</a>
+            <a href="/producto/lista" class="item item-1 redbtn">Atrás</a>
           </div>
           <div>
-            <a href="/peliculas/lista" class="item item-2 redbtn hvrbtn"
+            <a href="/producto/lista" class="item item-2 redbtn hvrbtn"
               >Atrás</a
             >
           </div>
