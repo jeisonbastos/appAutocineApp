@@ -8020,7 +8020,7 @@ header .navbar-default .flex-parent {
 @media (min-width: 992px) {
   header .navbar-default .flex-parent {
     display: flex !important;
-    jutify-content: flex-start;
+    justify-content: flex-start;
   }
 }
 header .navbar-default .flex-parent .menu-left {
