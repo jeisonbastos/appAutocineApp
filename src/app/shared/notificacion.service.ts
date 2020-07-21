@@ -11,9 +11,11 @@ export class NotificacionService {
     /* Top Right, Bottom Right, Bottom Left, Top Left, Top Full Width, Bottom Full Width, Top Center, Bottom Center */
     this.options.positionClass = 'toast-top-full-width';
     //Tiempo que se presenta el mensaje
-    this.options.timeOut = 5000;
+    //this.options.timeOut = 5000;
     //Habilitar formato HTML dentro de la notificación
     this.options.enableHtml = true;
+    this.options.disableTimeOut = true;
+    this.options.closeButton = true;
   }
   /*
 Presentar mensaje de notificación
@@ -33,11 +35,17 @@ Gestión de mensaje de validación de formularios para presentarlos en una notif
           mensaje += item.message + ' <br />';
         }
       }
+      else{
+        if (errores.error.error){
+          mensaje += errores.error.error;
+        }
+      }
       this.mensaje(mensaje, errores.error.message, 'warning ');
     } else {
       if (errores.error) {
         mensaje += errores.error + ' <br />';
       }
     }
+    this.toastr.show('',mensaje,this.options,'toast-warning');
   }
 }

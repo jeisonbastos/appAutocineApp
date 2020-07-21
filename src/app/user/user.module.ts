@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserRoutingModule } from './user-routing.module';
+import { ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // used to create fake backend
@@ -12,7 +13,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [LoginComponent, UserProfileComponent],
-  imports: [CommonModule, UserRoutingModule, ],
+  imports: [CommonModule, ReactiveFormsModule,UserRoutingModule, ],
   exports: [UserRoutingModule],
   // providers: [
   //   { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
