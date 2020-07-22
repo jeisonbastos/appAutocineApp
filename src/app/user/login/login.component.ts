@@ -92,10 +92,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
-
-import { AuthenticationService } from '../../shared/authentication.service';
-import { NotificacionService } from '../../shared/notificacion.service';
+import { AuthenticationService } from 'src/app/shared/authentication.service';
+import { NotificacionService } from 'src/app/shared/notificacion.service';
 
 @Component({
   templateUrl: 'login.component.html',
@@ -132,7 +130,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.reactiveForm();
   }
 
@@ -140,7 +138,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-    console.log(this.loginForm.value)
+    console.log(this.loginForm.value);
     this.authenticationService.loginUser(this.loginForm.value).subscribe(
       (respuesta: any) => {
         (this.user = respuesta), this.router.navigate(['peliculas/']);
@@ -152,11 +150,11 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  onReset(){
+  onReset() {
     this.loginForm.reset();
-  };
-
-  public errorHandling=(control:string, error:string)=>{
-    return this.loginForm.controls[control].hasError(error);
   }
+
+  public errorHandling = (control: string, error: string) => {
+    return this.loginForm.controls[control].hasError(error);
+  };
 }

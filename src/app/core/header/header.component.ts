@@ -1,14 +1,13 @@
 // import { Component, OnInit } from '@angular/core';
 // import { Router } from '@angular/router';
 import { Component, OnInit, ElementRef } from '@angular/core';
-import {
-  Location,
-  LocationStrategy,
-  PathLocationStrategy,
-} from '@angular/common';
 import { Router } from '@angular/router';
-import { User } from '../../_models';
-import { UserService, AuthenticationService } from '../../_services';
+import { AuthenticationService } from 'src/app/shared/authentication.service';
+import { GenericService } from 'src/app/shared/generic.service'
+import { NotificacionService } from 'src/app/shared/notificacion.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { IUser } from 'src/app/user/usuario';
 
 @Component({
   selector: 'app-header',
@@ -19,33 +18,51 @@ import { UserService, AuthenticationService } from '../../_services';
 })
 export class HeaderComponent implements OnInit {
   private listTitles: any['Autocine'];
-  location: Location;
-  public currentUser: User;
+  public currentUser: IUser;
+  public autenticado: string = "no_logged_in";
+  usuario: IUser = undefined;
+  datos: any;
+  destroy$: Subject<boolean> = new Subject<boolean>();
 
   constructor(
-    location: Location,
-    private element: ElementRef,
     private router: Router,
-    public authenticationService: AuthenticationService
+    public authenticationService: AuthenticationService,
+    private gService: GenericService,
+    private notificacion: NotificacionService
   ) {
-    this.location = location;
+    if (this.authenticationService.currentUserValue) {
+      this.currentUser = this.authenticationService.currentUserValue;
+      this.autenticado = "logged_in";
+    }
   }
 
   ngOnInit(): void {}
 
   login() {
-    // this.authenticationService.currentUser.subscribe(
-    //   (x) => (this.currentUser = x)
-    // );
     this.router.navigate(['/user/login']);
   }
 
   logout() {
     this.authenticationService.logout();
-    this.router.navigate(['/user/login']);
+    this.router.navigate(['/']);
+    this.autenticado = "no_logged_in";
   }
 
   getTitle() {
     return 'Autocine';
+  }
+
+  getUsuario(id: number) {
+    this.gService
+      .get('usuario', id)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(
+        (pelicula: any) => {
+          this.usuario = pelicula[0];
+        },
+        (error: any) => {
+          this.notificacion.mensaje(error.message, error.name, 'error');
+        }
+      );
   }
 }

@@ -39,13 +39,13 @@ export class AuthenticationService {
   //Crear usuario
   createUser(user: any): Observable<any> {
     return this.http
-      .post<any>(this.ServerUrl + 'autocine/auth/register', user, this.httpOptions)
+      .post<any>(this.ServerUrl + 'auth/register', user, this.httpOptions)
       .pipe(catchError(this.handler.handleError.bind(this)));
   }
   //Login
   loginUser(user: any): Observable<any> {
     return this.http
-      .post<any>(this.ServerUrl + 'autocine/auth/login', user, this.httpOptions)
+      .post<any>(this.ServerUrl + 'auth/login', user, this.httpOptions)
       .pipe(
         map((user) => {
           // almacene los detalles del usuario y el token jwt

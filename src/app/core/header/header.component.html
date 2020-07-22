@@ -97,8 +97,8 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                <i class="material-icons">notifications</i>
-                <span class="notification">5</span>
+                <i class="material-icons">user</i>
+                <span class="user-profile">{{currentUser.email}}</span>
                 <p>
                   <span class="d-lg-none d-md-block">Some Actions</span>
                 </p>
@@ -124,17 +124,21 @@
                 >
               </div>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" [ngSwitch]='autenticado'>
               <a
                 class="loginLink"
                 routerLink="/user/login"
                 routerLinkActive="active"
+                *ngSwitchCase="'no_logged_in'"
               >
                 Acceder
               </a>
+              <a class="loginLink" (click)="logout()" routerLinkActive="active" *ngSwitchCase="'logged_in'">
+                Salir
+              </a>
             </li>
-            <li class="btn signupLink">
-              <a routerLink="/user/user-profile" routerLinkActive="active"
+            <li class="btn signupLink" [ngSwitch]='autenticado'>
+              <a routerLink="/user/user-profile" routerLinkActive="active" *ngSwitchCase="'no_logged_in'"
                 >Registrarse</a
               >
             </li>

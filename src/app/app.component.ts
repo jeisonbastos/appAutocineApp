@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from './_services';
-import { User } from './_models';
+import { AuthenticationService } from 'src/app/shared/authentication.service';
+import { IUser } from 'src/app/user/usuario';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +10,6 @@ import { User } from './_models';
 })
 export class AppComponent {
   title = 'appAutocine';
-  currentUser: User;
+  currentUser: IUser;
   constructor(public router: Router){}
 }
