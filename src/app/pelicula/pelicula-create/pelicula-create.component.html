@@ -11,41 +11,38 @@
   </div>
 </div>
 <div class="page-single pelicula_list">
-  <div class="container">
-    <div class="form-style-1 user-pro">
+  <div class="container-fluid">
+    <div class="form-style-1">
       <form [formGroup]="createForm" (ngSubmit)="onSubmit()" novalidate>
+        <p>{{ createForm.value | json }}</p>
         <div class="row">
-          <div class="col-md-8 form-it">
+          <div class="col-md-10 form-it">
             <label for="nombre"
               >Nombre de la Película
               <input
                 type="text"
-                class="input-lg"
-                name="nombre"
-                id="nombre"
+                class="pelicula"
                 placeholder="Nombre de la Película"
                 formControlName="nombre"
             /></label>
           </div>
-          <div class="col-md-4 form-it">
+          <div class="col-md-2 form-it">
             <label for="habilitada" class="checkbox"
               >Habilitada<input
-                name="habilitada"
-                id="habilitada"
                 type="checkbox"
                 class="checkbox"
-                formControlName="habilitada" />
-              <span class="checkmark"></span
-            ></label>
+                formControlName="habilitada"
+              />
+            </label>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-3 form-it">
-            <label for="classification">Clasificación</label>
+          <div class="col-md-2 form-it">
+            <label for="classification_id">Clasificación</label>
             <select
               class="fluid dropdown"
-              formControlName="classification"
-              (change)="getSelectClassificationDescr()"
+              formControlName="classification_id"
+              (change)="getSelectClassificationDescr($event)"
             >
               <option
                 *ngFor="let clasificacion of clasificaciones"
@@ -56,8 +53,8 @@
             </select>
           </div>
           <div class="col-md-6 form-it">
-            <label></label>
-            <p>{{ createForm.value | json }}</p>
+            <label *ngIf="clasificacion_descripcion.length">Descripción</label>
+            <p>{{ clasificacion_descripcion }}</p>
           </div>
         </div>
         <div class="row">
@@ -72,10 +69,10 @@
                     class="checkbox"
                     [name]="genero.nombre"
                     [id]="genero.nombre"
-                    [value]="genero.id"
-                    formControlName="genders" />
-                  <span class="checkmark"></span
-                ></label>
+                    (change)="updateChkbxArray(genero.id, $event, 'genders')"
+                    formControlName="genders"
+                  />
+                </label>
               </div>
             </div>
           </div>

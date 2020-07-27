@@ -8,7 +8,7 @@ import { IClasificacion } from '../clasificacion';
 import { IGenero } from '../genero';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
 
 @Component({
   templateUrl: './pelicula-create.component.html',
@@ -27,6 +27,7 @@ export class PeliculaCreateComponent implements OnInit {
   error = '';
   pelicula: any;
   clasificaciones: IClasificacion[] = [];
+  clasificacion_descripcion = '';
   generos: IGenero[] = [];
   destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -34,26 +35,27 @@ export class PeliculaCreateComponent implements OnInit {
     public formBuilder: FormBuilder,
     private router: Router,
     private gService: GenericService,
-    private notificacion: NotificacionService
+    private notificacion: NotificacionService,
   ) {
-    this.reactiveForm();
-    this.getClassificaciones();
-    this.getGeneros();
   }
 
   reactiveForm() {
     this.createForm = this.formBuilder.group({
       nombre: ['', Validators.required],
-      classification: ['', Validators.required],
+      classification_id: ['', Validators.required],
       habilitada: ['', Validators.required],
-      genders: ['', Validators.required],
+      genders : this.formBuilder.array([]),
       sinopsis: ['', Validators.required],
       puntuacion: ['', Validators.required],
       imagenURL: ['', Validators.required],
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getClassificaciones();
+    this.getGeneros();
+    this.reactiveForm();
+  }
 
   onSubmit() {
     if (this.createForm.invalid) {
@@ -100,7 +102,17 @@ export class PeliculaCreateComponent implements OnInit {
       );
   }
 
-  getSelectClassificationDescr(): void {
-    // this.createForm.controls.
+  getSelectClassificationDescr(event): void {
+    this.clasificacion_descripcion = this.clasificaciones.find(x => x.id == event.target.value ).descripcion;
+  }
+
+  updateChkbxArray(id, isChecked, key) {
+    const chkArray = <FormArray>this.createForm.get(key);
+    if (isChecked.target.checked) {
+      chkArray.push(new FormControl(id));
+    } else {
+      let idx = chkArray.controls.findIndex(x => x.value == id);
+      chkArray.removeAt(idx);
+    }
   }
 }
