@@ -1,0 +1,107 @@
+<div class="hero common-hero">
+  <div class="container">
+    <div class="row" style="height: 120px;"></div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="hero-ct">
+          <h1>{{ pageTitle }}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-single pelicula_list">
+  <div class="container">
+    <div class="form-style-1 user-pro">
+      <form [formGroup]="createForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="row">
+          <div class="col-md-8 form-it">
+            <label for="nombre"
+              >Nombre de la Película
+              <input
+                type="text"
+                class="input-lg"
+                name="nombre"
+                id="nombre"
+                placeholder="Nombre de la Película"
+                formControlName="nombre"
+            /></label>
+          </div>
+          <div class="col-md-4 form-it">
+            <label for="habilitada" class="checkbox"
+              >Habilitada<input
+                name="habilitada"
+                id="habilitada"
+                type="checkbox"
+                class="checkbox"
+                formControlName="habilitada" />
+              <span class="checkmark"></span
+            ></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 form-it">
+            <label for="classification">Clasificación</label>
+            <select
+              class="fluid dropdown"
+              formControlName="classification"
+              (change)="getSelectClassificationDescr()"
+            >
+              <option
+                *ngFor="let clasificacion of clasificaciones"
+                [value]="clasificacion.id"
+              >
+                {{ clasificacion.siglas }}
+              </option>
+            </select>
+          </div>
+          <div class="col-md-6 form-it">
+            <label></label>
+            <p>{{ createForm.value | json }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-it">
+            <label for="genders">Géneros</label>
+            <div name="genders" id="gendrs">
+              <div class="col-md-2 form-it" *ngFor="let genero of generos">
+                <label [for]="genero.nombre" class="checkbox"
+                  >{{ genero.nombre
+                  }}<input
+                    type="checkbox"
+                    class="checkbox"
+                    [name]="genero.nombre"
+                    [id]="genero.nombre"
+                    [value]="genero.id"
+                    formControlName="genders" />
+                  <span class="checkmark"></span
+                ></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 form-it">
+            <label
+              >Sinopsis
+              <input
+                type="textarea"
+                class="form-control"
+                placeholder="Sinopsis"
+                formControlName="sinopsis"
+            /></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <input class="submit" type="submit" value="save" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="/src/js/custom.js"></script>
+<script src="/src/jsplugins.js"></script>
+<script src="/src/jsplugins2.js"></script>
+<script src="/src/jscustom.js"></script>

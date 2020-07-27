@@ -6569,6 +6569,7 @@ ul {
   text-transform: none;
   margin-bottom: 10px;
 }
+
 .form-style-1 input,
 .form-style-1 select {
   font-family: "Nunito", sans-serif;
@@ -6673,6 +6674,11 @@ ul {
 .form-style-1 .group-ip .ui.label > .delete.icon {
   font-size: 8px;
 }
+
+.form-style-1 .checkbox{
+padding-left: 30px;
+}
+
 .user-pro {
   padding: 30px;
 }

@@ -22,6 +22,13 @@
         <div class="col-md-4">
           <input type="text" [(ngModel)]="listFilter" />
         </div>
+        <div class="col-md-4">
+          <a
+            href='/peliculas/registrar'
+            class="item item-2 redbtn hvrbtn"
+            >Registra Película</a
+          >
+        </div>
       </div>
       <div class="row" style="height: 20px;"></div>
       <div class="row" *ngIf="listFilter">
@@ -51,12 +58,12 @@
             <tr *ngFor="let pelicula of filteredpeliculas">
               <td>
                 <a [routerLink]="['/peliculas', pelicula.id]">
-                <img
-                  *ngIf="showImage"
-                  [src]="pelicula.imagenURL"
-                  [title]="pelicula.nombre"
-                  [style.width.px]="200"
-                  [style.margin.px]="imageMargin"
+                  <img
+                    *ngIf="showImage"
+                    [src]="pelicula.imagenURL"
+                    [title]="pelicula.nombre"
+                    [style.width.px]="200"
+                    [style.margin.px]="imageMargin"
                 /></a>
               </td>
               <td>
@@ -75,10 +82,7 @@
               <td>{{ pelicula.sinopsis }}</td>
               <td>{{ pelicula.habilitada }}</td>
               <td>
-                <pm-star
-                  [rating]="pelicula.puntuacion"
-                >
-                </pm-star>
+                <pm-star [rating]="pelicula.puntuacion"> </pm-star>
               </td>
             </tr>
           </tbody>
