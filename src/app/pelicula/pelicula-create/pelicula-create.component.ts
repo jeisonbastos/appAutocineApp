@@ -37,6 +37,8 @@ export class PeliculaCreateComponent implements OnInit {
     private gService: GenericService,
     private notificacion: NotificacionService,
   ) {
+    this.getClassificaciones();
+    this.getGeneros();
   }
 
   reactiveForm() {
@@ -44,7 +46,7 @@ export class PeliculaCreateComponent implements OnInit {
       nombre: ['', Validators.required],
       classification_id: ['', Validators.required],
       habilitada: ['', Validators.required],
-      genders : this.formBuilder.array([]),
+      genders: this.formBuilder.array(this.generos.map(x => !1)),
       sinopsis: ['', Validators.required],
       puntuacion: ['', Validators.required],
       imagenURL: ['', Validators.required],
@@ -52,9 +54,11 @@ export class PeliculaCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getClassificaciones();
-    this.getGeneros();
     this.reactiveForm();
+  }
+
+  onReset() {
+    this.createForm.reset();
   }
 
   onSubmit() {

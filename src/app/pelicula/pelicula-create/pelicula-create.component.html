@@ -11,7 +11,7 @@
   </div>
 </div>
 <div class="page-single pelicula_list">
-  <div class="container-fluid">
+  <div class="container">
     <div class="form-style-1">
       <form [formGroup]="createForm" (ngSubmit)="onSubmit()" novalidate>
         <p>{{ createForm.value | json }}</p>
@@ -21,18 +21,19 @@
               >Nombre de la Película
               <input
                 type="text"
-                class="pelicula"
+                class="form-control"
                 placeholder="Nombre de la Película"
                 formControlName="nombre"
             /></label>
           </div>
           <div class="col-md-2 form-it">
-            <label for="habilitada" class="checkbox"
+            <label class="checkbox-container"
               >Habilitada<input
                 type="checkbox"
-                class="checkbox"
+                class="form-control"
+                [value]="true"
                 formControlName="habilitada"
-              />
+              /><span class="checkmark"></span>
             </label>
           </div>
         </div>
@@ -60,18 +61,16 @@
         <div class="row">
           <div class="col-md-12 form-it">
             <label for="genders">Géneros</label>
-            <div name="genders" id="gendrs">
-              <div class="col-md-2 form-it" *ngFor="let genero of generos">
-                <label [for]="genero.nombre" class="checkbox"
+            <div name="genders" id="genders" formArrayName="generos">
+              <div class="col-md-2 form-it" *ngFor="let genero of generos; index as i">
+                <label class="checkbox-container"
                   >{{ genero.nombre
                   }}<input
                     type="checkbox"
-                    class="checkbox"
-                    [name]="genero.nombre"
-                    [id]="genero.nombre"
+                    class="form-control"
                     (change)="updateChkbxArray(genero.id, $event, 'genders')"
                     formControlName="genders"
-                  />
+                  /><span class="checkmark"></span>
                 </label>
               </div>
             </div>
