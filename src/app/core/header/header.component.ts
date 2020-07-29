@@ -19,7 +19,6 @@ import { IUser } from 'src/app/user/usuario';
 export class HeaderComponent implements OnInit {
   private listTitles: any['Autocine'];
   public currentUser: IUser;
-  public autenticado: string = "no_logged_in";
   usuario: IUser = undefined;
   datos: any;
   destroy$: Subject<boolean> = new Subject<boolean>();
@@ -32,7 +31,6 @@ export class HeaderComponent implements OnInit {
   ) {
     if (this.authenticationService.currentUserValue) {
       this.currentUser = this.authenticationService.currentUserValue;
-      this.autenticado = "logged_in";
     }
   }
 
@@ -45,7 +43,6 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/']);
-    this.autenticado = "no_logged_in";
   }
 
   getTitle() {

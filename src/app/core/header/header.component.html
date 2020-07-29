@@ -87,69 +87,32 @@
           </ul>
         </div>
         <div class="collapse navbar-collapse" id="navigation">
-          <ul class="nav navbar-nav flex-child-menu menu-right">
-            <!-- <li class="nav-item dropdown">
+          <ul class="navbar-nav mr-auto menu-right">
+            <li class="nav-item" *ngIf="currentUser != null">
+              <span class="badge badge-light">
+                {{ currentUser.name }}
+              </span>
+            </li>
+            <li class="nav-item" *ngIf="currentUser == null">
               <a
                 class="nav-link"
-                href="javascript:void(0)"
-                id="navbarDropdownMenuLink"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <i class="material-icons">user</i>
-                <span class="user-profile">{{ currentUser.email }}</span>
-                <p>
-                  <span class="d-lg-none d-md-block">Some Actions</span>
-                </p>
-              </a>
-              <div
-                class="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <a class="dropdown-item" routerLink="/notifications"
-                  >Notification 1</a
-                >
-                <a class="dropdown-item" href="javascript:void(0)"
-                  >Notification 2</a
-                >
-                <a class="dropdown-item" href="javascript:void(0)"
-                  >Notification 3</a
-                >
-                <a class="dropdown-item" href="javascript:void(0)"
-                  >Notification 4</a
-                >
-                <a class="dropdown-item" href="javascript:void(0)"
-                  >Another One</a
-                >
-              </div>
-            </li> -->
-            <!-- [ngSwitch]=""  -->
-            <li class="nav-item">
-              <!-- *ngSwitchCase='' -->
-              <a
-                class="loginLink"
                 routerLink="/user/login"
                 routerLinkActive="active"
-
               >
                 Acceder
               </a>
             </li>
-            <li>
+            <li class="nav-item" *ngIf="currentUser != null">
               <a
-                class="loginLink"
+                class="nav-link"
                 (click)="logout()"
                 routerLinkActive="active"
               >
                 Salir
               </a>
             </li>
-            <li class="btn signupLink" [ngSwitch]="autenticado">
-              <a
-                routerLink="/user/user-profile"
-                routerLinkActive="active"
-                *ngSwitchCase=""
+            <li class="nav-item" *ngIf="currentUser == null">
+              <a class="nav-link" routerLink="/user/user-profile" routerLinkActive="active"
                 >Registrarse</a
               >
             </li>

@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from 'src/app/shared/authentication.service';
 import { NotificacionService } from 'src/app/shared/notificacion.service';
 import { GenericService } from 'src/app/shared/generic.service';
-import { IPelicula } from '../pelicula';
 import { IClasificacion } from '../clasificacion';
 import { IGenero } from '../genero';
 import { takeUntil } from 'rxjs/operators';
@@ -39,6 +37,7 @@ export class PeliculaCreateComponent implements OnInit {
   ) {
     this.getClassificaciones();
     this.getGeneros();
+    this.reactiveForm();
   }
 
   reactiveForm() {
@@ -54,11 +53,10 @@ export class PeliculaCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.reactiveForm();
   }
 
   onReset() {
-    this.createForm.reset();
+    this.reactiveForm();
   }
 
   onSubmit() {
@@ -68,7 +66,7 @@ export class PeliculaCreateComponent implements OnInit {
     console.log(this.createForm.value);
     this.gService.create('pelicula', this.createForm.value).subscribe(
       (respuesta: any) => {
-        (this.pelicula = respuesta), this.router.navigate(['peliculas/']);
+        (this.pelicula = respuesta), this.router.navigate(['peliculas/lista']);
       },
       (error: any) => {
         this.error = error;

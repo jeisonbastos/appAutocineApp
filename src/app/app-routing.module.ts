@@ -14,11 +14,11 @@ import { PeliculaListComponent } from './pelicula/pelicula-list/pelicula-list.co
 const routes: Routes = [
   { path: 'home', component: InicioComponent, canActivate: [AuthGuard] },
   { path: '**', component: PageNotFoundComponent },
-  { path: 'notifications', component: NotificationsComponent },
-  { path: 'user/login', component: LoginComponent },
-  { path: 'producto', component: ProductoIndexComponent },
-  { path: 'producto/lista', component: ProductoListComponent },
-  { path: 'pelicula', component: PeliculaListComponent },
+  // { path: 'notifications', component: NotificationsComponent },
+  // { path: 'user/login', component: LoginComponent },
+  // { path: 'producto', component: ProductoIndexComponent },
+  // { path: 'producto/lista', component: ProductoListComponent },
+  // { path: 'pelicula', component: PeliculaListComponent },
 ];
 
 @NgModule({

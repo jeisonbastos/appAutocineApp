@@ -10,6 +10,5 @@ import { IUser } from 'src/app/user/usuario';
 })
 export class AppComponent {
   title = 'appAutocine';
-  currentUser: IUser;
   constructor(public router: Router){}
 }

@@ -15,24 +15,6 @@
       <div class="col-md-4 col-sm-12 col-xs-12"></div>
       <div class="col-md-4 col-sm-12 col-xs-12">
         <div class="form-style-1 user-pro">
-          <small
-            class="row alert alert-error"
-            *ngIf="errorHandling('email', 'required')"
-          >
-            El Correo electrónico es requerido.
-          </small>
-          <small
-            class="row alert alert-error"
-            *ngIf="errorHandling('email', 'email')"
-          >
-            Verifique el formato del Correo electrónico.
-          </small>
-          <small
-            class="row alert alert-error"
-            *ngIf="errorHandling('password', 'required')"
-          >
-            La contraseña es requerida.
-          </small>
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
             <div class="row">
               <label for="email">
@@ -46,6 +28,12 @@
                   formControlName="email"
                 />
               </label>
+              <small class="row alert alert-error" *ngIf="errorHandling('email', 'required')">
+                El Correo electrónico es requerido.
+              </small>
+              <small class="row alert alert-error" *ngIf="errorHandling('email', 'email')">
+                Verifique el formato del Correo electrónico.
+              </small>
               <!--
                                 pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
                                 required="required"
@@ -62,6 +50,9 @@
                   formControlName="password"
                 />
               </label>
+              <small class="row alert alert-error" *ngIf="errorHandling('password', 'required')">
+                La contraseña es requerida.
+              </small>
               <!--
                                 pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
                                 required="required"
