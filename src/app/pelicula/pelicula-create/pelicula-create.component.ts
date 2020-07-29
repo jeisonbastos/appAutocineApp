@@ -45,11 +45,11 @@ export class PeliculaCreateComponent implements OnInit {
     this.createForm = this.formBuilder.group({
       nombre: ['', Validators.required],
       classification_id: ['', Validators.required],
-      habilitada: ['', Validators.required],
+      habilitada: [false, Validators.required],
       genders: this.formBuilder.array(this.generos.map(x => !1)),
       sinopsis: ['', Validators.required],
-      puntuacion: ['', Validators.required],
-      imagenURL: ['', Validators.required],
+      puntuacion: [0, Validators.required],
+      imagenURL: ['url', Validators.required],
     });
   }
 
@@ -66,7 +66,7 @@ export class PeliculaCreateComponent implements OnInit {
       return;
     }
     console.log(this.createForm.value);
-    this.gService.create('', this.createForm.value).subscribe(
+    this.gService.create('pelicula', this.createForm.value).subscribe(
       (respuesta: any) => {
         (this.pelicula = respuesta), this.router.navigate(['peliculas/']);
       },

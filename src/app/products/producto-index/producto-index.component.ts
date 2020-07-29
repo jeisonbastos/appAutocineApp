@@ -6,7 +6,6 @@ import { takeUntil } from 'rxjs/operators';
 import { IProducto } from '../producto';
 import { IProductoTipo } from '../producto-tipo';
 import { IProductoClasificacion } from '../producto-clasificacion';
-import { ProductService } from '../producto.service';
 
 @Component({
   templateUrl: './producto-index.component.html',

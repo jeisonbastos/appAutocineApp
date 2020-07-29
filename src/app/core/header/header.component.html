@@ -88,7 +88,7 @@
         </div>
         <div class="collapse navbar-collapse" id="navigation">
           <ul class="nav navbar-nav flex-child-menu menu-right">
-            <li class="nav-item dropdown">
+            <!-- <li class="nav-item dropdown">
               <a
                 class="nav-link"
                 href="javascript:void(0)"
@@ -98,7 +98,7 @@
                 aria-expanded="false"
               >
                 <i class="material-icons">user</i>
-                <span class="user-profile">{{currentUser.email}}</span>
+                <span class="user-profile">{{ currentUser.email }}</span>
                 <p>
                   <span class="d-lg-none d-md-block">Some Actions</span>
                 </p>
@@ -123,22 +123,33 @@
                   >Another One</a
                 >
               </div>
-            </li>
-            <li class="nav-item" [ngSwitch]='autenticado'>
+            </li> -->
+            <!-- [ngSwitch]=""  -->
+            <li class="nav-item">
+              <!-- *ngSwitchCase='' -->
               <a
                 class="loginLink"
                 routerLink="/user/login"
                 routerLinkActive="active"
-                *ngSwitchCase="'no_logged_in'"
+
               >
                 Acceder
               </a>
-              <a class="loginLink" (click)="logout()" routerLinkActive="active" *ngSwitchCase="'logged_in'">
+            </li>
+            <li>
+              <a
+                class="loginLink"
+                (click)="logout()"
+                routerLinkActive="active"
+              >
                 Salir
               </a>
             </li>
-            <li class="btn signupLink" [ngSwitch]='autenticado'>
-              <a routerLink="/user/user-profile" routerLinkActive="active" *ngSwitchCase="'no_logged_in'"
+            <li class="btn signupLink" [ngSwitch]="autenticado">
+              <a
+                routerLink="/user/user-profile"
+                routerLinkActive="active"
+                *ngSwitchCase=""
                 >Registrarse</a
               >
             </li>

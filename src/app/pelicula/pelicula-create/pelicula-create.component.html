@@ -62,7 +62,10 @@
           <div class="col-md-12 form-it">
             <label for="genders">Géneros</label>
             <div name="genders" id="genders" formArrayName="generos">
-              <div class="col-md-2 form-it" *ngFor="let genero of generos; index as i">
+              <div
+                class="col-md-2 form-it"
+                *ngFor="let genero of generos; index as i"
+              >
                 <label class="checkbox-container"
                   >{{ genero.nombre
                   }}<input
@@ -90,7 +93,15 @@
         </div>
         <div class="row">
           <div class="col-md-2">
-            <input class="submit" type="submit" value="save" />
+            <button class="redbtn" type="submit" (click)="onSubmit()">
+              Guardar
+            </button>
+          </div>
+          <div class="col-md1"></div>
+          <div class="col-md-2">
+            <button class="redbtn" type="reset" (click)="onReset()">
+              Cancelar
+            </button>
           </div>
         </div>
       </form>
