@@ -1,12 +1,6 @@
-// import { Component, OnInit } from '@angular/core';
-// import { Router } from '@angular/router';
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/shared/authentication.service';
-import { GenericService } from 'src/app/shared/generic.service'
-import { NotificacionService } from 'src/app/shared/notificacion.service';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 import { IUser } from 'src/app/user/usuario';
 
 @Component({
@@ -17,21 +11,15 @@ import { IUser } from 'src/app/user/usuario';
     '../../../assets/css/plugins.css',],
 })
 export class HeaderComponent implements OnInit {
-  private listTitles: any['Autocine'];
-  public currentUser: IUser;
+  pageTitle  = 'Autocine';
+  public currentUser: any;
   usuario: IUser = undefined;
-  datos: any;
-  destroy$: Subject<boolean> = new Subject<boolean>();
 
   constructor(
     private router: Router,
     public authenticationService: AuthenticationService,
-    private gService: GenericService,
-    private notificacion: NotificacionService
   ) {
-    if (this.authenticationService.currentUserValue) {
-      this.currentUser = this.authenticationService.currentUserValue;
-    }
+    this.authenticationService.currentUser.subscribe((x) => (this.currentUser = x));
   }
 
   ngOnInit(): void {}
@@ -47,19 +35,5 @@ export class HeaderComponent implements OnInit {
 
   getTitle() {
     return 'Autocine';
-  }
-
-  getUsuario(id: number) {
-    this.gService
-      .get('usuario', id)
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(
-        (pelicula: any) => {
-          this.usuario = pelicula[0];
-        },
-        (error: any) => {
-          this.notificacion.mensaje(error.message, error.name, 'error');
-        }
-      );
   }
 }
