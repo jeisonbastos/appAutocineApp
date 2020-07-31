@@ -89,7 +89,7 @@
         <div class="collapse navbar-collapse" id="navigation">
           <ul class="navbar-nav mr-auto menu-right">
             <li class="nav-item" *ngIf="currentUser != null">
-              <a class="nav-link" routerLink="/" routerLinkActive="active"
+              <a class="nav-link" routerLink="/user/user-profile" routerLinkActive="active"
                 ><i class="ion-person"></i> {{ currentUser.user.name }}
               </a>
             </li>
@@ -102,14 +102,14 @@
               </a>
             </li>
             <li class="nav-item" *ngIf="currentUser != null">
-              <a class="nav-link" (click)="logout()" routerLinkActive="active"><i class="ion-log-out"></i>:
+              <a class="nav-link" (click)="logout()" routerLinkActive="active"><i class="ion-log-out"></i>
                 Salir
               </a>
             </li>
             <li class="nav-item" *ngIf="currentUser == null">
               <a
                 class="nav-link"
-                routerLink="/user/user-profile"
+                routerLink="/user/sign-in"
                 routerLinkActive="active"
                 ><i class="ion-person-add"></i> Registrarse</a
               >

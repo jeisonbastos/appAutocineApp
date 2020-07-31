@@ -3,11 +3,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="hero-ct">
-          <h1>Edward kennedy’s profile</h1>
-          <ul class="breadcumb">
-            <li class="active"><a href="#">Home</a></li>
-            <li> <span class="ion-ios-arrow-right"></span>Profile</li>
-          </ul>
+          <h1>Perfil del Usuario {{currentUser.user.name}}</h1>
         </div>
       </div>
     </div>
@@ -17,9 +13,10 @@
   <div class="container">
     <div class="row ipad-width">
       <div class="col-md-3 col-sm-12 col-xs-12">
+        <div style="height: 200px;"></div>
         <div class="user-information">
           <div class="user-img">
-            <a href="#"><img src="images/uploads/user-img.png" alt=""><br></a>
+            <a href="#"><img src="/src/assets/img/uploads/user-img.png" alt="User Avatar"><br></a>
             <a href="#" class="redbtn">Change avatar</a>
           </div>
           <div class="user-fav">
@@ -33,7 +30,7 @@
           <div class="user-fav">
             <p>Others</p>
             <ul>
-              <li><a href="#">Change password</a></li>
+              <li><a href="#">Cambio de Contraseña</a></li>
               <li><a href="#">Log out</a></li>
             </ul>
           </div>
@@ -41,7 +38,7 @@
       </div>
       <div class="col-md-9 col-sm-12 col-xs-12">
         <div class="form-style-1 user-pro" action="#">
-          <form action="#" class="user">
+          <form action="#" class="user" [formGroup]="signInForm">
             <h4>01. Profile details</h4>
             <div class="row">
               <div class="col-md-6 form-it">
@@ -85,7 +82,7 @@
               </div>
             </div>
           </form>
-          <form action="#" class="password">
+          <form action="#" class="password" [formGroup]="changePwdForm">
             <h4>02. Change password</h4>
             <div class="row">
               <div class="col-md-6 form-it">

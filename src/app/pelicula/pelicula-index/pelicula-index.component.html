@@ -112,23 +112,19 @@
         <div class="sidebar">
           <div class="searh-form">
             <h4 class="sb-title">Búsqueda por Película</h4>
-            <form class="form-style-1" action="#">
+            <form class="form-style-1">
               <div class="row">
                 <div class="col-md-12 form-it">
-                  <input type="text" [(ngModel)]="listFilter" />
+                  <input type="text"/>
                 </div>
                 <div class="col-md-12 form-it">
                   <label>Géneros</label>
-                  <div class="group-ip">
-                    <select name="skills" multiple="" class="ui fluid dropdown">
-                      <option value="">Filtro por Géneros</option>
-                      <option
-                        *ngFor="let genero of generos"
-                        [value]="genero.id"
-                      >
-                        {{ genero.nombre }}
-                      </option>
-                    </select>
+                  <div class="group-ip" *ngFor="let genero of generos; index as i">
+                      <label class="checkbox-container">{{ genero.nombre
+                                      }}<input type="checkbox" class="form-control"
+                          (change)="updateChkbxArray(genero.id, $event, 'genders')" /><span
+                          class="checkmark"></span>
+                      </label>
                   </div>
                 </div>
                 <div class="col-md-12 form-it">

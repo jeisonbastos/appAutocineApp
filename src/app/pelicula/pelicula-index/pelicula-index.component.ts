@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GenericService } from 'src/app/shared/generic.service';
 import { NotificacionService } from 'src/app/shared/notificacion.service';
+import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { IPelicula } from '../pelicula';
@@ -24,6 +25,7 @@ export class PeliculaIndexComponent implements OnInit {
   error: any;
   datos: any;
   destroy$: Subject<boolean> = new Subject<boolean>();
+  filterForm: FormGroup;
 
   _listFilter = '';
   get listFilter(): string {
@@ -89,11 +91,21 @@ export class PeliculaIndexComponent implements OnInit {
         (generos: any) => {
           // console.log(peliculas);
           this.generos = generos;
-          this.total_generos = generos.count();
+          // this.total_generos = generos.count();
         },
         (error: any) => {
           this.notificacion.mensaje(error.message, error.name, 'error');
         }
       );
+  }
+
+  updateChkbxArray(id, isChecked, key) {
+    const chkArray = <FormArray>this.filterForm.get(key);
+    if (isChecked.target.checked) {
+      chkArray.push(new FormControl(id));
+    } else {
+      let idx = chkArray.controls.findIndex(x => x.value == id);
+      chkArray.removeAt(idx);
+    }
   }
 }
