@@ -1,0 +1,115 @@
+<div class="hero common-hero">
+  <div class="container">
+    <div class="row" style="height: 120px;"></div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="hero-ct">
+          <h1>{{ pageTitle }}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-single pelicula_list">
+  <div class="container">
+    <div class="form-style-1">
+      <form [formGroup]="updateForm" (ngSubmit)="onSubmit()" novalidate>
+        <p>{{ updateForm.value | json }}</p>
+        <div class="row">
+          <div class="col-md-10 form-it">
+            <label for="nombre"
+              >Nombre de la Película
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Nombre de la Película"
+                formControlName="nombre"
+            /></label>
+          </div>
+          <div class="col-md-2 form-it">
+            <label class="checkbox-container"
+              >Habilitada<input
+                type="checkbox"
+                class="form-control"
+                [value]="true"
+                formControlName="habilitada"
+              /><span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2 form-it">
+            <label for="classification_id">Clasificación</label>
+            <select
+              class="fluid dropdown"
+              formControlName="classification_id"
+              (change)="getSelectClassificationDescr($event)"
+            >
+              <option
+                *ngFor="let clasificacion of clasificaciones"
+                [value]="clasificacion.id"
+              >
+                {{ clasificacion.siglas }}
+              </option>
+            </select>
+          </div>
+          <div class="col-md-6 form-it">
+            <label *ngIf="clasificacion_descripcion.length">Descripción</label>
+            <p>{{ clasificacion_descripcion }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-it">
+            <label for="genders">Géneros</label>
+            <div name="genders" id="genders" formArrayName="genders">
+              <div
+                class="col-md-2 form-it"
+                *ngFor="let gender of genders.controls; index as i"
+              >
+                <label class="checkbox-container"
+                  >{{ generos[i].nombre
+                  }}<input
+                    type="checkbox"
+                    class="form-control"
+                    [value]='generos[i].id'
+                    (change)="updateChkbxArray(generos[i].id, $event, 'genders_id')"
+                    formControlName="genders"
+                  /><span class="checkmark"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 form-it">
+            <label
+              >Sinopsis
+              <input
+                type="textarea"
+                class="form-control"
+                placeholder="Sinopsis"
+                formControlName="sinopsis"
+            /></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <button class="redbtn" type="submit">
+              Guardar
+            </button>
+          </div>
+          <div class="col-md1"></div>
+          <div class="col-md-2">
+            <button class="redbtn" type="reset" (click)="onReset()">
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="/src/js/custom.js"></script>
+<script src="/src/jsplugins.js"></script>
+<script src="/src/jsplugins2.js"></script>
+<script src="/src/jscustom.js"></script>

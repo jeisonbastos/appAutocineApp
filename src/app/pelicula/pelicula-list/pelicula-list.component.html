@@ -37,20 +37,20 @@
         <table class="table-responsive" *ngIf="peliculas && peliculas.length">
           <thead>
             <tr>
-              <th>
-              </th>
+              <th></th>
               <th>Pelicula</th>
               <th>Clasificación</th>
               <th>Géneros</th>
               <th>Sinopsis</th>
               <th>Habilitada</th>
               <th>Puntuación</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let pelicula of filteredpeliculas">
               <td>
-                <a [routerLink]="['/peliculas', pelicula.id]">
+                <a [routerLink]="['/peliculas/detalle', pelicula.id]">
                   <img
                     *ngIf="showImage"
                     [src]="pelicula.imagenURL"
@@ -60,7 +60,7 @@
                 /></a>
               </td>
               <td>
-                <a [routerLink]="['/peliculas', pelicula.id]">
+                <a [routerLink]="['/peliculas/detalle', pelicula.id]">
                   {{ pelicula.nombre }}
                 </a>
               </td>
@@ -76,6 +76,13 @@
               <td>{{ pelicula.habilitada }}</td>
               <td>
                 <pm-star [rating]="pelicula.puntuacion"> </pm-star>
+              </td>
+              <td>
+                <a
+                  [routerLink]="['/peliculas/actualizar', pelicula.id]"
+                  class="item item-2 redbtn hvrbtn"
+                  ><i class="ion-edit"></i
+                ></a>
               </td>
             </tr>
           </tbody>
