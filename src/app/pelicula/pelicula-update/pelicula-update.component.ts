@@ -44,6 +44,7 @@ export class PeliculaUpdateComponent implements OnInit {
   ) {
     const id = +this.route.snapshot.paramMap.get('id');
     this.getPelicula(id);
+    this.getGeneros();
     this.getClassificaciones();
   }
 
@@ -70,20 +71,20 @@ export class PeliculaUpdateComponent implements OnInit {
   }
 
   reactiveForm() {
-    this.getGeneros();
     if (this.pelicula) {
       this.updateForm = this.formBuilder.group({
+        id: [this.pelicula.id, Validators.required],
         nombre: [this.pelicula.nombre, Validators.required],
         classification_id: [
           this.pelicula.classification_id,
           Validators.required,
         ],
         habilitada: [this.pelicula.habilitada, Validators.required],
-        genders: this.formBuilder.array([]),
-        genders_id: this.formBuilder.array([]),
         sinopsis: [this.pelicula.sinopsis, Validators.required],
         puntuacion: [this.pelicula.puntuacion, Validators.required],
         imagenURL: [this.pelicula.imagenURL, Validators.required],
+        genders: this.formBuilder.array([]),
+        genders_id: this.formBuilder.array([]),
       });
     }
   }
@@ -131,7 +132,7 @@ export class PeliculaUpdateComponent implements OnInit {
       .subscribe(
         (generos: any) => {
           console.log(generos);
-          this.generos = generos, this.setPeliculaCheckedGender();
+          (this.generos = generos), this.setPeliculaCheckedGender();
         },
         (error: any) => {
           this.notificacion.mensaje(error.message, error.name, 'error');
@@ -159,13 +160,13 @@ export class PeliculaUpdateComponent implements OnInit {
     this.generos.forEach((x) => {
       let selected = false;
       if (this.pelicula.genders.find((i) => i.id == x.id)) {
-        (this.updateForm.controls.genders_id as FormArray).push(
+        (this.updateForm.controls.genders as FormArray).push(
           new FormControl(x.id)
         );
         selected = true;
       }
       const control = new FormControl(selected);
-      (this.updateForm.controls.genders as FormArray).push(control);
+      (this.updateForm.controls.genders_id as FormArray).push(control);
     });
   }
 }
