@@ -77,13 +77,13 @@ export class PeliculaUpdateComponent implements OnInit {
         nombre: [this.pelicula.nombre, Validators.required],
         classification_id: [
           this.pelicula.classification_id,
-          Validators.required,
+          [Validators.required, Validators.min(1)],
         ],
         habilitada: [this.pelicula.habilitada, Validators.required],
         sinopsis: [this.pelicula.sinopsis, Validators.required],
-        puntuacion: [this.pelicula.puntuacion, Validators.required],
+        puntuacion: [this.pelicula.puntuacion, [Validators.required, Validators.pattern("^[0-9]*\.[0-9]{2}$"), Validators.min(0)]],
         imagenURL: [this.pelicula.imagenURL, Validators.required],
-        genders: this.formBuilder.array([]),
+        genders: this.formBuilder.array([], [Validators.required, Validators.minLength(1)]),
         genders_id: this.formBuilder.array([]),
       });
     }
@@ -92,7 +92,7 @@ export class PeliculaUpdateComponent implements OnInit {
   ngOnInit(): void {}
 
   onReset() {
-    this.reactiveForm();
+    this.updateForm.reset();
   }
 
   onSubmit() {
@@ -169,4 +169,8 @@ export class PeliculaUpdateComponent implements OnInit {
       (this.updateForm.controls.genders_id as FormArray).push(control);
     });
   }
+
+  public errorHandling = (control: string, error: string) => {
+    return this.updateForm.controls[control].hasError(error);
+  };
 }

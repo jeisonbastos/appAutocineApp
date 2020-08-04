@@ -68,6 +68,7 @@
   }
   img {
     max-width: 100% !important;
+    border-radius: 10%;
   }
   p,
   h2,
@@ -94,7 +95,7 @@
   }
   .table td,
   .table th {
-    background-color: #fff !important;
+    background-color: rgb(231, 211, 29) !important;
   }
   .table-bordered th,
   .table-bordered td {
@@ -1053,6 +1054,7 @@ table th[class*="col-"] {
 .table-responsive {
   overflow-x: auto;
   min-height: 0.01%;
+  color: azure;
 }
 @media screen and (max-width: 767px) {
   .table-responsive {
@@ -3672,6 +3674,7 @@ td {
   outline: 0;
   padding: 0;
   vertical-align: baseline;
+  color: rgb(204, 207, 207);
 }
 html {
   -webkit-text-size-adjust: 100%;
@@ -3778,7 +3781,7 @@ body {
   font-size: 15rem;
   font-size: 15px;
   font-size: 1.5rem;
-  color: #333;
+  color: #ffffff;
 }
 body,
 button,
@@ -3822,7 +3825,7 @@ a {
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  color: #666;
+  color: rgb(146, 192, 245);
   border-bottom: 1px solid dotted;
 }
 a:hover {
@@ -4302,6 +4305,7 @@ ul {
 }
 .cate {
   margin-bottom: 15px;
+  margin-right: 5px;
 }
 .cate span {
   padding: 3px 5px;
@@ -4331,6 +4335,7 @@ ul {
 /*Comedia*/
 .cate .yell {
   background-color: #f5b50a;
+  color: black;
 }
 /*Drama*/
 .cate .green {

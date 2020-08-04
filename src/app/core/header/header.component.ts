@@ -12,7 +12,7 @@ import { IUser } from 'src/app/user/usuario';
 })
 export class HeaderComponent implements OnInit {
   pageTitle  = 'Autocine';
-  public currentUser: any;
+  public currentUser: any = null;
   usuario: IUser = undefined;
 
   constructor(

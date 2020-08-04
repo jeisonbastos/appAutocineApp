@@ -19,10 +19,12 @@
           <div class="row">
             <div class="col-md-8 col-sm-12 col-xs-12">
               <div class="title-in">
-                <div class="cate" *ngFor="let generos of pelicula.genders">
-                  <span [class]="generos.color"
-                    ><a href="#">{{ generos.nombre }}</a></span
-                  >
+                <div class="row">
+                  <div class="cate" *ngFor="let generos of pelicula.genders">
+                    <span [class]="generos.color"
+                      ><a href="#">{{ generos.nombre }}</a></span
+                    >
+                  </div>
                 </div>
                 <h1>
                   <a href="#">{{ pelicula.nombre }}<br /></a>

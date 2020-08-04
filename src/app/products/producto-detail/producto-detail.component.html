@@ -5,10 +5,6 @@
       <div class="col-md-12">
         <div class="hero-ct">
           <h1>{{ pageTitle + ": " + producto.nombre }}</h1>
-          <!-- <ul class="breadcumb">
-              <li class="active"><a href="#">Funciones</a></li>
-              <li><span class="ion-ios-arrow-right">Cartelera</span></li>
-            </ul> -->
         </div>
       </div>
     </div>
@@ -23,20 +19,24 @@
           <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
               <div class="title-in">
-                <div
-                  class="cate"
-                  *ngFor="let clasificacion of producto.classifications"
-                >
-                  <span class="yell"
-                    ><a href="#">{{ clasificacion.nombre }}</a></span
+                <div class="row">
+                  <div
+                    class="cate"
+                    *ngFor="let clasificacion of producto.classifications"
                   >
+                    <span class="yell"
+                      ><a href="#">{{ clasificacion.nombre }}</a></span
+                    >
+                  </div>
                 </div>
                 <h1>
                   <a href="#">{{ producto.nombre }}<br /></a>
                 </h1>
                 <div class="mv-details">
                   <ul class="mv-infor">
-                    <li>Tipo de Producto: {{ producto.product_type.nombre }}</li>
+                    <li>
+                      Tipo de Producto: {{ producto.product_type.nombre }}
+                    </li>
                     <li>Tamaño: {{ producto.tamano_presentacion }}</li>
                     <li>
                       Descripción:

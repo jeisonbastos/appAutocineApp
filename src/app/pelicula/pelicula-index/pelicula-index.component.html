@@ -26,7 +26,7 @@
           <div class="row">
             <div class="col-md-4 col-sm-12 col-xs-12">
               <div class="mv-img-2">
-                <a [routerLink]="['/peliculas', pelicula.id]"
+                <a [routerLink]="['/peliculas/detalle', pelicula.id]"
                   ><img
                     *ngIf="showImage"
                     [src]="pelicula.imagenURL"
@@ -37,13 +37,15 @@
               </div>
             </div>
             <div class="col-md-8 col-sm-12 col-xs-12 title-in">
-              <div class="cate" *ngFor="let generos of pelicula.genders">
-                <span [class]="generos.color"
-                  ><a href="#">{{ generos.nombre }}</a></span
-                >
+              <div class="row">
+                <div class="cate" *ngFor="let generos of pelicula.genders">
+                  <span [class]="generos.color"
+                    ><a href="#">{{ generos.nombre }}</a></span
+                  >
+                </div>
               </div>
               <h1>
-                <a [routerLink]="['/peliculas', pelicula.id]"
+                <a [routerLink]="['/peliculas/detalle', pelicula.id]"
                   >{{ pelicula.nombre }}<br />
                   <!-- <span>2015</span>--></a
                 >
@@ -115,16 +117,24 @@
             <form class="form-style-1">
               <div class="row">
                 <div class="col-md-12 form-it">
-                  <input type="text"/>
+                  <input type="text" />
                 </div>
                 <div class="col-md-12 form-it">
                   <label>Géneros</label>
-                  <div class="group-ip" *ngFor="let genero of generos; index as i">
-                      <label class="checkbox-container">{{ genero.nombre
-                                      }}<input type="checkbox" class="form-control"
-                          (change)="updateChkbxArray(genero.id, $event, 'genders')" /><span
-                          class="checkmark"></span>
-                      </label>
+                  <div
+                    class="group-ip"
+                    *ngFor="let genero of generos; index as i"
+                  >
+                    <label class="checkbox-container"
+                      >{{ genero.nombre
+                      }}<input
+                        type="checkbox"
+                        class="form-control"
+                        (change)="
+                          updateChkbxArray(genero.id, $event, 'genders')
+                        "
+                      /><span class="checkmark"></span>
+                    </label>
                   </div>
                 </div>
                 <div class="col-md-12 form-it">

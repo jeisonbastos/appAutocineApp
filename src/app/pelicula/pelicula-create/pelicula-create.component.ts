@@ -43,12 +43,12 @@ export class PeliculaCreateComponent implements OnInit {
   reactiveForm() {
     this.createForm = this.formBuilder.group({
       nombre: ['', Validators.required],
-      classification_id: ['', Validators.required],
+      classification_id: ['', [Validators.required, Validators.min(1)]],
       habilitada: [false, Validators.required],
-      genders: this.formBuilder.array(this.generos.map(x => !1)),
       sinopsis: ['', Validators.required],
-      puntuacion: [0, Validators.required],
+      puntuacion: [0, [Validators.required, Validators.pattern("^[0-9]*\.[0-9]{2}$"), Validators.min(0)]],
       imagenURL: ['url', Validators.required],
+      genders: this.formBuilder.array(this.generos.map(x => !1), [Validators.required, Validators.minLength(1)]),
     });
   }
 
@@ -56,7 +56,7 @@ export class PeliculaCreateComponent implements OnInit {
   }
 
   onReset() {
-    this.reactiveForm();
+    this.createForm.reset();
   }
 
   onSubmit() {
@@ -73,6 +73,10 @@ export class PeliculaCreateComponent implements OnInit {
         this.notificacion.msjValidacion(this.error);
       }
     );
+  }
+
+  onBack() {
+    this.router.navigate(['/peliculas/lista']);
   }
 
   getClassificaciones() {
@@ -117,4 +121,8 @@ export class PeliculaCreateComponent implements OnInit {
       chkArray.removeAt(idx);
     }
   }
+
+  public errorHandling = (control: string, error: string) => {
+    return this.createForm.controls[control].hasError(error);
+  };
 }

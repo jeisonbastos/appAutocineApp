@@ -26,6 +26,12 @@
                 placeholder="Nombre de la Película"
                 formControlName="nombre"
             /></label>
+            <small
+              class="row alert alert-error"
+              *ngIf="errorHandling('nombre', 'required')"
+            >
+              El nombre de la película es requerido.
+            </small>
           </div>
           <div class="col-md-2 form-it">
             <label class="checkbox-container"
@@ -54,6 +60,12 @@
               </option>
             </select>
           </div>
+          <small
+            class="row alert alert-error"
+            *ngIf="errorHandling('classification_id', 'required')"
+          >
+            Debe seleccionar una clasificación.
+          </small>
           <div class="col-md-6 form-it">
             <label *ngIf="clasificacion_descripcion.length">Descripción</label>
             <p>{{ clasificacion_descripcion }}</p>
@@ -81,6 +93,12 @@
                 </label>
               </div>
             </div>
+            <small
+              class="row alert alert-error"
+              *ngIf="errorHandling('genders', 'required')"
+            >
+              La película debe estar asociada al menos con un género.
+            </small>
           </div>
         </div>
         <div class="row">
@@ -93,6 +111,12 @@
                 placeholder="Sinopsis"
                 formControlName="sinopsis"
             /></label>
+            <small
+              class="row alert alert-error"
+              *ngIf="errorHandling('sinopsis', 'required')"
+            >
+              Debe agregar una sinopsis a la película.
+            </small>
           </div>
         </div>
         <div class="row">
@@ -105,6 +129,24 @@
                 placeholder="Puntuacion"
                 formControlName="puntuacion"
             /></label>
+            <small
+              class="row alert alert-error"
+              *ngIf="errorHandling('puntuacion', 'required')"
+            >
+              La puntuación es requerida.
+            </small>
+            <small
+              class="row alert alert-error"
+              *ngIf="errorHandling('puntuacion', 'min')"
+            >
+              La puntuación es mínima es 0.
+            </small>
+            <small
+              class="row alert alert-error"
+              *ngIf="errorHandling('puntuacion', 'pattern')"
+            >
+              La puntuación es dato numérico, máximo 2 decimales.
+            </small>
           </div>
         </div>
         <div class="row">
@@ -133,6 +175,13 @@
           </div>
         </div>
       </form>
+    </div>
+    <div class="col-md-4 col-md-offset-0">
+      <div>
+        <a href="/peliculas/lista" class="redbtn"
+          ><i class="ion-chevron-left"></i>Atrás</a
+        >
+      </div>
     </div>
   </div>
 </div>

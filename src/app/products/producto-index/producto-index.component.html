@@ -37,13 +37,15 @@
               </div>
             </div>
             <div class="col-md-8 col-sm-12 col-xs-12 title-in">
-              <div
-                class="cate"
-                *ngFor="let clasificacion of producto.classifications"
-              >
-                <span class="blue"
-                  ><a href="#">{{ clasificacion.nombre }}</a></span
+              <div class="row">
+                <div
+                  class="cate"
+                  *ngFor="let clasificacion of producto.classifications"
                 >
+                  <span class="yell"
+                    ><a href="#">{{ clasificacion.nombre }}</a></span
+                  >
+                </div>
               </div>
               <h1>
                 <a [routerLink]="['/producto', producto.id]">
@@ -87,7 +89,7 @@
               <p class="describe">{{ producto.descripcion }}</p>
             </div>
           </div>
-          <hr/>
+          <hr />
         </div>
         <div class="topbar-filter">
           <label>productos per page:</label>
