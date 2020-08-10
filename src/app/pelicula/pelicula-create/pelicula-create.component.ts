@@ -46,9 +46,9 @@ export class PeliculaCreateComponent implements OnInit {
       classification_id: ['', [Validators.required, Validators.min(1)]],
       habilitada: [false, Validators.required],
       sinopsis: ['', Validators.required],
-      puntuacion: [0, [Validators.required, Validators.pattern("^[0-9]*\.[0-9]{2}$"), Validators.min(0)]],
+      puntuacion: [0.00, [Validators.required, Validators.min(0)]],
       imagenURL: ['url', Validators.required],
-      genders: this.formBuilder.array(this.generos.map(x => !1), [Validators.required, Validators.minLength(1)]),
+      genders: this.formBuilder.array(this.generos.map(x => !1), [Validators.required]),
     });
   }
 

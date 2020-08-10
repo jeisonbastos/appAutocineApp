@@ -32,7 +32,7 @@ Gestión de mensaje de validación de formularios para presentarlos en una notif
     if (errores != null) {
       if (errores.error.errors) {
         for (const item of errores.error.errors) {
-          mensaje += item.message + ' <br />';
+          mensaje += item.message;
         }
       }
       else{
@@ -43,7 +43,7 @@ Gestión de mensaje de validación de formularios para presentarlos en una notif
       this.mensaje(mensaje, errores.error.message, 'warning ');
     } else {
       if (errores.error) {
-        mensaje += errores.error + ' <br />';
+        mensaje += errores.error;
       }
     }
     this.toastr.show('',mensaje,this.options,'toast-warning');

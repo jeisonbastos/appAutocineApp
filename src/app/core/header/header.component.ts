@@ -12,12 +12,12 @@ import { IUser } from 'src/app/user/usuario';
 })
 export class HeaderComponent implements OnInit {
   pageTitle  = 'Autocine';
-  public currentUser: any = null;
+  currentUser: any = null;
   usuario: IUser = undefined;
 
   constructor(
     private router: Router,
-    public authenticationService: AuthenticationService,
+    private authenticationService: AuthenticationService,
   ) {
     this.authenticationService.currentUser.subscribe((x) => (this.currentUser = x));
   }
