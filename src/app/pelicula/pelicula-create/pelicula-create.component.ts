@@ -57,7 +57,7 @@ export class PeliculaCreateComponent implements OnInit {
 
   onReset() {
     this.createForm.reset();
-  }
+ }
 
   onSubmit() {
     if (this.createForm.invalid) {
