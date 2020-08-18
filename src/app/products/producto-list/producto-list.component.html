@@ -1,14 +1,9 @@
 <div class="hero common-hero">
   <div class="container">
-    <!-- <div class="row" style="height: 120px;"></div> -->
     <div class="row">
       <div class="col-md-12">
         <div class="hero-ct">
           <h1>{{ pageTitle }}</h1>
-          <!-- <ul class="breadcumb">
-            <li class="active"><a href="#">Funciones</a></li>
-            <li><span class="ion-ios-arrow-right">Cartelera</span></li>
-          </ul> -->
         </div>
       </div>
     </div>
@@ -23,11 +18,13 @@
           <input type="text" [(ngModel)]="listFilter" />
         </div>
       </div>
+      <div class="row" style="height: 20px;"></div>
       <div class="row" *ngIf="listFilter">
         <div class="col-md-6">
           <h4>Filtered by: {{ listFilter }}</h4>
         </div>
       </div>
+      <div class="row" style="height: 20px;"></div>
       <div class="table-responsive">
         <table class="table" *ngIf="producto && producto.length">
           <thead>

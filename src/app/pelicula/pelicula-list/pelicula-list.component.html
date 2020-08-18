@@ -73,7 +73,18 @@
                 </ul>
               </td>
               <td>{{ pelicula.sinopsis }}</td>
-              <td>{{ pelicula.habilitada }}</td>
+              <td class="checkbox">
+                <label class="checkbox-container"
+                  ><input
+                    type="checkbox"
+                    class="form-control"
+                    disabled="disabled"
+                    value="true"
+                    [checked]="pelicula.habilitada != 0"
+                  /><span class="checkmark"></span>
+                </label>
+              </td>
+
               <td>
                 <pm-star [rating]="pelicula.puntuacion"> </pm-star>
               </td>

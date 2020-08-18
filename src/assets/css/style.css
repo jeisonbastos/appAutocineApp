@@ -2828,6 +2828,11 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .alert-danger .alert-link {
   color: #843534;
 }
+
+.alert-error {
+  color:red;
+}
+
 .embed-responsive {
   position: relative;
   display: block;
@@ -3460,6 +3465,7 @@ button.close {
     display: table-cell !important;
   }
 }
+
 @media (min-width: 768px) and (max-width: 991px) {
   .visible-sm-block {
     display: block !important;
@@ -3724,6 +3730,11 @@ td {
   font-weight: normal;
   text-align: left;
 }
+
+.checkbox{
+  align-items: center;
+}
+
 blockquote:before,
 blockquote:after,
 q:before,
