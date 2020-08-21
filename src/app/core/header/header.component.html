@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse flex-parent" id="navbarColor01">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" routerLink="/home" routerLinkActive="active"
+              <a class="nav-link" routerLink="/cartelera" routerLinkActive="active"
                 >Cartelera
               </a>
             </li>
@@ -53,7 +53,10 @@
               </a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" routerLink="#" routerLinkActive="active"
+              <a
+                class="nav-link"
+                routerLink="/ubicaciones"
+                routerLinkActive="active"
                 >Ubicaciones
               </a>
             </li>
@@ -89,7 +92,10 @@
         <div class="collapse navbar-collapse" id="navigation">
           <ul class="navbar-nav mr-auto menu-right">
             <li class="nav-item" *ngIf="currentUser != null">
-              <a class="nav-link" routerLink="/user/user-profile" routerLinkActive="active"
+              <a
+                class="nav-link"
+                routerLink="/user/user-profile"
+                routerLinkActive="active"
                 ><i class="ion-person"></i> {{ currentUser.user.name }}
               </a>
             </li>
@@ -102,7 +108,8 @@
               </a>
             </li>
             <li class="nav-item" *ngIf="currentUser != null">
-              <a class="nav-link" (click)="logout()" routerLinkActive="active"><i class="ion-log-out"></i>
+              <a class="nav-link" (click)="logout()" routerLinkActive="active"
+                ><i class="ion-log-out"></i>
                 Salir
               </a>
             </li>
@@ -119,8 +126,8 @@
       </div>
     </nav>
     <!-- <div class="container"> -->
-      <!-- top search form -->
-      <!-- <div class="top-search">
+    <!-- top search form -->
+    <!-- <div class="top-search">
         <select>
           <option value="united">Películas</option>
           <option value="saab">Others</option>

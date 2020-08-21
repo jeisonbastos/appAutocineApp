@@ -10,6 +10,8 @@ import { HomeModule } from './home/home.module';
 import { UserModule } from './user/user.module';
 import { ProductoModule } from './products/producto.module';
 import { PeliculaModule } from './pelicula/pelicula.module';
+import { UbicacionModule } from './ubicaciones/ubicacion.module';
+import { FuncionModule } from './funcion/funcion.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +30,8 @@ import { PeliculaModule } from './pelicula/pelicula.module';
     UserModule,
     ProductoModule,
     PeliculaModule,
+    UbicacionModule,
+    FuncionModule,
 
     // al final el gestor de las rutas principal
     AppRoutingModule,

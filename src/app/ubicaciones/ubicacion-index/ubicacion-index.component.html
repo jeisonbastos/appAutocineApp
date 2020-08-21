@@ -1,0 +1,183 @@
+<div class="hero common-hero">
+  <div class="container">
+    <div class="row" style="height: 120px;"></div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="hero-ct">
+          <h1>{{ pageTitle }}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-single pelicula_list">
+  <div class="container">
+    <div class="row ipad-width2" style="padding: 0 10px 0 10 px;">
+      <div class="col-md-8 col-sm-12 col-xs-12">
+        <div class="topbar-filter">
+          <a href="" class="list"
+            ><i class="ion-ios-list-outline active"></i
+          ></a>
+        </div>
+        <div
+          class="ubicacion-item-style-2"
+          *ngFor="let ubicacion of filteredUbicaciones"
+        >
+          <div class="row">
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <div class="mv-img-2">
+                <a [routerLink]="['/ubicaciones/detalle', ubicacion.id]"
+                  ><img
+                    *ngIf="showImage"
+                    [src]="ubicacion.ubicacion_gps"
+                    [title]="ubicacion.nombre"
+                    [style.width.px]="200"
+                    [style.margin.px]="imageMargin"
+                /></a>
+              </div>
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-12 title-in">
+              <div class="row">
+                <!-- <div class="cate" *ngFor="let generos of ubicacion.genders">
+                  <span [class]="generos.color"
+                    ><a href="#">{{ generos.nombre }}</a></span
+                  >
+                </div> -->
+              </div>
+              <div class="row">
+              <h1>
+                <a [routerLink]="['/ubicaciones/detalle', ubicacion.id]"
+                  >{{ ubicacion.nombre }}<br />
+                </a>
+              </h1>
+              </div>
+              <div class="row">
+                <div class="social-btn">
+                  <a href="#" class="parent-btn"
+                    ><i class="ion-map"></i>Ver Mapa</a
+                  >
+                </div>
+              </div>
+              <div class="mv-details">
+                <ul class="mv-infor">
+                  <li>Provincia: {{ ubicacion.provincia }}</li>
+                  <li>Cantón: {{ ubicacion.canton }}</li>
+                  <li>Distrito: {{ ubicacion.distrito }}</li>
+                  <li>Direccion: {{ ubicacion.direccion_exacta }}</li>
+                  <li>Capacidad: {{ ubicacion.capacidad_maxima }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <hr />
+        </div>
+        <div class="topbar-filter">
+          <label>ubicaciones por página:</label>
+          <select>
+            <option value="range">5 ubicaciones</option>
+            <option value="saab">10 ubicaciones</option>
+          </select>
+          <div class="pagination2">
+            <span>Page 1 of 2:</span>
+            <a class="active" href="#">1</a>
+            <a href="#">2</a>
+            <a href="#"><i class="ion-arrow-right-b"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <div class="sidebar">
+          <div class="searh-form">
+            <h4 class="sb-title">Búsqueda por Película</h4>
+            <form class="form-style-1">
+              <div class="row">
+                <div class="col-md-12 form-it">
+                  <input type="text" />
+                </div>
+                <div class="col-md-12 form-it">
+                  <label>Géneros</label>
+                  <!-- <div
+                    class="group-ip"
+                    *ngFor="let genero of generos; index as i"
+                  >
+                    <label class="checkbox-container"
+                      >{{ genero.nombre
+                      }}<input
+                        type="checkbox"
+                        class="form-control"
+                        (change)="
+                          updateChkbxArray(genero.id, $event, 'genders')
+                        "
+                      /><span class="checkmark"></span>
+                    </label>
+                  </div> -->
+                </div>
+                <div class="col-md-12 form-it">
+                  <label>Puntuación</label>
+
+                  <select>
+                    <option value="range"
+                      >-- Seleccione el rango de puntuación --</option
+                    >
+                  </select>
+                </div>
+                <div class="col-md-12 form-it">
+                  <label>Release Year</label>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <select>
+                        <option value="range">De</option>
+                        <option value="number">10</option>
+                        <option value="number">20</option>
+                        <option value="number">30</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <select>
+                        <option value="range">A</option>
+                        <option value="number">20</option>
+                        <option value="number">30</option>
+                        <option value="number">40</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <input class="submit" type="submit" value="submit" />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="ads">
+            <img src="../../assests/img/uploads/ads1.png" alt="" />
+          </div>
+          <div class="sb-facebook sb-it">
+            <h4 class="sb-title">Síganos en Facebook</h4>
+            <iframe
+              src="#"
+              data-src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftemplatespoint.net%2F%3Ffref%3Dts&tabs=timeline&width=340&height=315px&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=true&appId"
+              height="315"
+              style="width: 100%; border: none; overflow: hidden;"
+            ></iframe>
+          </div>
+          <div class="sb-twitter sb-it">
+            <h4 class="sb-title">Síganos Tweeter</h4>
+            <div class="slick-tw">
+              <div class="tweet item" id="">
+                <!-- Put your twiter id here -->
+              </div>
+              <div class="tweet item" id="">
+                <!-- Put your 2nd twiter account id here -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/src/js/custom.js"></script>
+<script src="/src/jsplugins.js"></script>
+<script src="/src/jsplugins2.js"></script>
+<script src="/src/jscustom.js"></script>
