@@ -1,0 +1,103 @@
+<div class="hero common-hero">
+  <div class="container">
+    <!-- <div class="row" style="height: 120px;"></div> -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="hero-ct">
+          <h1>{{ pageTitle }}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-single pelicula_list">
+  <div class="container">
+    <div class="card-body">
+      <div class="row" style="margin-bottom: 20px;">
+        <div class="col-md-4 col-md-offset-8">
+          <a href="/funciones/registrar" class="item item-2 redbtn hvrbtn"
+            ><i class="ion-plus-round"></i>Registrar Función</a
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">Filtrar por:</div>
+        <div class="col-md-4">
+          <input type="text" [(ngModel)]="listFilter" />
+        </div>
+      </div>
+      <div class="row" style="height: 20px;"></div>
+      <div class="row" *ngIf="listFilter">
+        <div class="col-md-6">
+          <h4>Filtrado por: {{ listFilter }}</h4>
+        </div>
+      </div>
+      <div class="row" style="height: 20px;"></div>
+      <div class="table-responsive">
+        <table class="table-responsive" *ngIf="funciones && funciones.length">
+          <thead>
+            <tr>
+              <th>Pelicula</th>
+              <th>Ubicación</th>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Cartelera</th>
+              <th>Venta</th>
+              <th>Espacios</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let funcion of filteredFunciones">
+              <td>
+                <a [routerLink]="['/peliculas/detalle', funcion.movie_id]">
+                  {{ funcion.movie.nombre }}
+                </a>
+              </td>
+              <td>
+                {{ funcion.location.nombre }}
+              </td>
+              <td>
+                {{ funcion.fecha }}
+              </td>
+              <td>
+                {{ funcion.hora }}
+              </td>
+              <td>
+                <label class="checkbox-container"
+                  ><input
+                    type="checkbox"
+                    class="form-control"
+                    disabled="disabled"
+                    value="true"
+                    [checked]="funcion.visible_cartelera != false"
+                  /><span class="checkmark"></span>
+                </label>
+              </td>
+              <td>
+                <label class="checkbox-container"
+                  ><input
+                    type="checkbox"
+                    class="form-control"
+                    disabled="disabled"
+                    value="true"
+                    [checked]="funcion.disponible_venta != false"
+                  /><span class="checkmark"></span>
+                </label>
+              </td>
+              <td>{{ funcion.cantidad_espacios }}</td>
+              <td>
+                <a
+                  [routerLink]="['/peliculas/actualizar', funcion.id]"
+                  class="item item-2 redbtn hvrbtn"
+                  ><i class="ion-edit"></i
+                ></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="error" class="alert alert-danger">Error: {{ error }}</div>
+</div>
