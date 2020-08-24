@@ -58,16 +58,20 @@ export class GenericService {
   }
   // crear
   create(endopoint: string, objCreate: any | any): Observable<any | any[]> {
-    return this.http.post<any | any[]>(this.urlAPI + endopoint, objCreate, {
-      headers: this.headers,
-    });
+    return this.http
+      .post<any | any[]>(this.urlAPI + endopoint, objCreate, {
+        headers: this.headers,
+      })
+      .pipe(catchError(this.handler.handleError.bind(this)));
   }
   // actualizar
   update(endopoint: string, objUpdate: any | any): Observable<any | any[]> {
-    return this.http.patch<any | any[]>(
-      this.urlAPI + endopoint + `/${objUpdate.id}`,
-      objUpdate,
-      { headers: this.headers }
-    );
+    return this.http
+      .patch<any | any[]>(
+        this.urlAPI + endopoint + `/${objUpdate.id}`,
+        objUpdate,
+        { headers: this.headers }
+      )
+      .pipe(catchError(this.handler.handleError.bind(this)));
   }
 }

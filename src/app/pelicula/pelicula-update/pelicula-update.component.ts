@@ -81,9 +81,19 @@ export class PeliculaUpdateComponent implements OnInit {
         ],
         habilitada: [this.pelicula.habilitada, Validators.required],
         sinopsis: [this.pelicula.sinopsis, Validators.required],
-        puntuacion: [this.pelicula.puntuacion, [Validators.required, Validators.pattern("^[0-9]*\.[0-9]{2}$"), Validators.min(0)]],
+        puntuacion: [
+          this.pelicula.puntuacion,
+          [
+            Validators.required,
+            Validators.pattern('^[0-9]*.[0-9]{2}$'),
+            Validators.min(0),
+          ],
+        ],
         imagenURL: [this.pelicula.imagenURL, Validators.required],
-        genders: this.formBuilder.array([], [Validators.required, Validators.minLength(1)]),
+        genders: this.formBuilder.array(
+          [],
+          [Validators.required, Validators.minLength(1)]
+        ),
         genders_id: this.formBuilder.array([]),
       });
     }

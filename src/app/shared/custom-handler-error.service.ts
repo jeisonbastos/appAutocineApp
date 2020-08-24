@@ -37,6 +37,10 @@ export class CustomHandlerErrorService {
     if (error.status === 400) {
       error.error.message = 'Solicitud incorrecta';
     }
+
+    if (error.status === 500) {
+      error.error.message = 'El Token ha expirado. Por favor acceder de nuevo';
+    }
     return throwError(error);
   }
 }

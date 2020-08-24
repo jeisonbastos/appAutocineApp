@@ -22,7 +22,7 @@ Presentar mensaje de notificación
 Toast Type: success, info, warning, error
  */
   public mensaje(titulo: string, mensaje: string, tipo: string) {
-    this.toastr.show(mensaje, titulo, this.options, 'toast-' + tipo);
+    this.toastr.show(titulo, mensaje, this.options, 'toast-' + tipo);
   }
   /*
 Gestión de mensaje de validación de formularios para presentarlos en una notificación
@@ -32,20 +32,24 @@ Gestión de mensaje de validación de formularios para presentarlos en una notif
     if (errores != null) {
       if (errores.error.errors) {
         for (const item of errores.error.errors) {
-          mensaje += item.message;
+          mensaje += item.message + '\n';
+        }
+      } else {
+        if (errores.error) {
+          mensaje += errores.error.message + '\n';
         }
       }
-      else{
-        if (errores.error.error){
-          mensaje += errores.error.error;
-        }
-      }
-      this.mensaje(mensaje, errores.error.message, 'warning ');
+      //this.mensaje(mensaje, errores.error.message, 'warning ');
     } else {
-      if (errores.error) {
-        mensaje += errores.error;
+      if (errores.error.error) {
+        mensaje += errores.error.error + '\n';
       }
     }
-    this.toastr.show('',mensaje,this.options,'toast-warning');
+    this.toastr.show(
+      mensaje,
+      'Error de validación',
+      this.options,
+      'toast-warning'
+    );
   }
 }
