@@ -5,7 +5,7 @@ import { NotificacionService } from 'src/app/shared/notificacion.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { IProducto } from '../producto';
-import { IProductoTipo } from '../producto-tipo';
+import { IProductoTipo } from '../../producto/producto-tipo';
 import { IProductoClasificacion } from '../producto-clasificacion';
 
 @Component({

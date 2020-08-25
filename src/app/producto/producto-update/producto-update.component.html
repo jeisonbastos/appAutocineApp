@@ -1,0 +1,255 @@
+<div class="hero common-hero">
+  <div class="container">
+    <div class="row" style="height: 120px;"></div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="hero-ct">
+          <h1>{{ pageTitle }}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-single pelicula_list">
+  <div class="container">
+    <input type="hidden" formControlName="id" />
+    <div class="form-style-1">
+      <form [formGroup]="updateForm" (ngSubmit)="onSubmit()" novalidate>
+        <p>{{ updateForm.value | json }}</p>
+        
+        <div class="row">
+          <div class="col-md-4 form-it">
+            <label for="nombre"
+              >Nombre del Producto
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Nombre de la Producto"
+                formControlName="nombre"
+            /></label>
+            <small
+              class="row alert alert-error"
+              *ngIf="errorHandling('nombre', 'required')"
+            >
+              El nombre del producto es requerido.
+            </small>
+          </div>
+          <div class="col-md-4 form-it">
+            <div class="col-md-6 form-it">
+              <label
+                >Tamaño
+                <input
+                  type="number"
+                  min="0"
+                  step="0.25"
+                  class="form-control"
+                  placeholder="Tamaño"
+                  formControlName="tamano_presentacion"
+              /></label>
+              <small
+                class="row alert alert-error"
+                *ngIf="errorHandling('tamano_presentacion', 'required')"
+              >
+                El tamaño es requerido.
+              </small>
+              <small
+                class="row alert alert-error"
+                *ngIf="errorHandling('tamano_presentacion', 'min')"
+              >
+                El tamaño es mínima es 0.
+              </small>
+              <small
+                class="row alert alert-error"
+                *ngIf="errorHandling('tamano_presentacion', 'pattern')"
+              >
+                El tamaño es dato numérico, máximo 2 decimales.
+              </small>
+            </div>
+          </div>
+          <div class="col-md-4 form-it">
+            <div class="col-md-6 form-it">
+              <label
+                >Precio
+                <input
+                  type="number"
+                  min="0"
+                  step="100"
+                  class="form-control"
+                  placeholder="Precio"
+                  formControlName="precio"
+              /></label>
+              <small
+                class="row alert alert-error"
+                *ngIf="errorHandling('precio', 'required')"
+              >
+                La precio es requerida.
+              </small>
+              <small
+                class="row alert alert-error"
+                *ngIf="errorHandling('precio', 'min')"
+              >
+                La precio es mínima es 0.
+              </small>
+              <small
+                class="row alert alert-error"
+                *ngIf="errorHandling('precio', 'pattern')"
+              >
+                La precio es dato numérico, máximo 2 decimales.
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2 form-it">
+            <label for="product_type_id">Clasificación</label>
+            <select
+              class="fluid dropdown"
+              formControlName="product_type_id"
+              (change)="getSelectTipoDescr($event)"
+            >
+              <option *ngFor="let tipo of producto_tipos" [value]="tipo.id">
+                {{ tipo.nombre }}
+              </option>
+            </select>
+          </div>
+          <small
+            class="row alert alert-error"
+            *ngIf="errorHandling('product_type_id', 'required')"
+          >
+            Debe seleccionar una clasificación.
+          </small>
+          <div class="col-md-6 form-it">
+            <label *ngIf="tipo_descripcion.length">Descripción</label>
+            <p>{{ tipo_descripcion }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-it">
+            <label for="classifications">Clasificaciones</label>
+            <div
+              name="classifications"
+              id="classifications"
+              formArrayName="classifications_id"
+            >
+              <div
+                class="col-md-2 form-it"
+                *ngFor="
+                  let classification of classifications_id.controls;
+                  index as i
+                "
+              >
+                <label class="checkbox-container"
+                  >{{ clasificaciones[i].nombre
+                  }}<input
+                    type="checkbox"
+                    class="form-control"
+                    [value]="i"
+                    (change)="
+                      updateChkbxArray(
+                        clasificaciones[i].id,
+                        $event,
+                        'classifications'
+                      )
+                    "
+                    [formControlName]="i"
+                  /><span class="checkmark"></span>
+                </label>
+              </div>
+            </div>
+            <small
+              class="row alert alert-error"
+              *ngIf="errorHandling('classifications', 'required')"
+            >
+              La producto debe estar asociada al menos con una clasificación.
+            </small>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 form-it">
+            <label
+              >Descripción
+              <input
+                type="textarea"
+                class="form-control"
+                placeholder="Descripción"
+                formControlName="descripcion"
+            /></label>
+            <small
+              class="row alert alert-error"
+              *ngIf="errorHandling('descripcion', 'required')"
+            >
+              Debe agregar una descripción al producto.
+            </small>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 form-it">
+            <label
+              >Puntuación
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Puntuacion"
+                disabled="disabled"
+                formControlName="puntuacion"
+            /></label>
+            <small
+              class="row alert alert-error"
+              *ngIf="errorHandling('puntuacion', 'required')"
+            >
+              La puntuación es requerida.
+            </small>
+            <small
+              class="row alert alert-error"
+              *ngIf="errorHandling('puntuacion', 'min')"
+            >
+              La puntuación es mínima es 0.
+            </small>
+            <small
+              class="row alert alert-error"
+              *ngIf="errorHandling('puntuacion', 'pattern')"
+            >
+              La puntuación es dato numérico, máximo 2 decimales.
+            </small>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 form-it">
+            <label
+              >URL del Imagen
+              <input
+                type="text"
+                class="form-control"
+                placeholder="URL imagen"
+                formControlName="imagenURL"
+            /></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <button class="redbtn" type="submit">
+              Guardar
+            </button>
+          </div>
+          <div class="col-md1"></div>
+          <div class="col-md-2">
+            <button class="redbtn" type="reset" (click)="onReset()">
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-4 col-md-offset-0">
+      <div>
+        <a href="/productos/lista" class="redbtn"
+          ><i class="ion-chevron-left"></i>Atrás</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/src/js/custom.js"></script>
+<script src="/src/jsplugins.js"></script>
+<script src="/src/jsplugins2.js"></script>
+<script src="/src/jscustom.js"></script>

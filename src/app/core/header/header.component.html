@@ -32,7 +32,10 @@
         <div class="collapse navbar-collapse flex-parent" id="navbarColor01">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" routerLink="/cartelera" routerLinkActive="active"
+              <a
+                class="nav-link"
+                routerLink="/cartelera"
+                routerLinkActive="active"
                 >Cartelera
               </a>
             </li>
@@ -47,7 +50,7 @@
             <li class="nav-item active">
               <a
                 class="nav-link"
-                routerLink="/producto"
+                routerLink="/productos"
                 routerLinkActive="active"
                 >Productos
               </a>
@@ -60,7 +63,7 @@
                 >Ubicaciones
               </a>
             </li>
-            <li class="nav-item dropdown">
+            <li *ngIf="currentUser != null && rol.nombre == 'administrador'" class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
@@ -73,7 +76,7 @@
                 Mantenimientos
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/producto/lista">Productos</a>
+                <a class="dropdown-item" href="/productos/lista">Productos</a>
                 <a class="dropdown-item" href="/peliculas/lista">Peliculas</a>
                 <a class="dropdown-item" href="/funciones">Funciones</a>
               </div>

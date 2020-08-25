@@ -12,6 +12,12 @@
 <div class="page-single pelicula_list">
   <div class="container">
     <div class="card-body">
+            <div class="row" style="margin-bottom: 20px;">
+              <div class="col-md-4 col-md-offset-8">
+                <a href="/productos/registrar" class="item item-2 redbtn hvrbtn"><i class="ion-plus-round"></i>Registrar
+                  Producto</a>
+              </div>
+            </div>
       <div class="row">
         <div class="col-md-2">Filter by:</div>
         <div class="col-md-4">
@@ -36,6 +42,7 @@
               <th>Descripción</th>
               <th>Tamaño</th>
               <th>Precio</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -63,6 +70,10 @@
               <td>{{ producto.descripcion }}</td>
               <td>{{ producto.tamano_presentacion }}</td>
               <td>{{ producto.precio | currency: "CRC":"symbol":"1.2-2" }}</td>
+              <td>
+                <a [routerLink]="['/productos/actualizar', producto.id]" class="item item-2 redbtn hvrbtn"><i
+                    class="ion-edit"></i></a>
+              </td>
             </tr>
           </tbody>
         </table>

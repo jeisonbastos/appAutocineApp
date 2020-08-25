@@ -8,7 +8,7 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 import { UserModule } from './user/user.module';
-import { ProductoModule } from './products/producto.module';
+import { ProductoModule } from './producto/producto.module';
 import { PeliculaModule } from './pelicula/pelicula.module';
 import { UbicacionModule } from './ubicaciones/ubicacion.module';
 import { FuncionModule } from './funcion/funcion.module';

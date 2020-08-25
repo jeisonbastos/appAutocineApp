@@ -16,47 +16,64 @@
       <div class="col-md-4 col-sm-12 col-xs-12">
         <div class="form-style-1 user-pro">
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
-            <div class="row">
-              <label for="email">
-                Usuario:
-                <input
-                  type="email"
-                  class="form-control"
-                  name="email"
-                  id="email"
-                  placeholder="usuario@dominio.any"
-                  formControlName="email"
-                />
-              </label>
-              <small class="row alert alert-error" *ngIf="errorHandling('email', 'required')">
-                El Correo electrónico es requerido.
-              </small>
-              <small class="row alert alert-error" *ngIf="errorHandling('email', 'email')">
-                Verifique el formato del Correo electrónico.
-              </small>
+            <div class="row container">
+              <div class="row col-md-12">
+                <label for="email">
+                  Usuario:
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    id="email"
+                    placeholder="usuario@dominio.any"
+                    formControlName="email"
+                  />
+                </label>
+              </div>
+              <div class="row col-md-12">
+                <small
+                  class="row alert alert-error"
+                  *ngIf="errorHandling('email', 'required')"
+                >
+                  El Correo electrónico es requerido.
+                </small>
+                <small
+                  class="row alert alert-error"
+                  *ngIf="errorHandling('email', 'email')"
+                >
+                  Verifique el formato del Correo electrónico.
+                </small>
+              </div>
               <!--
                                 pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
                                 required="required"
                                 -->
             </div>
-            <div class="row">
-              <label for="password">
-                Contraseña:
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder=""
-                  formControlName="password"
-                />
-              </label>
-              <small class="row alert alert-error" *ngIf="errorHandling('password', 'required')">
-                La contraseña es requerida.
-              </small>
-              <!--
+            <div class="row container">
+              <div class="row col-md-12">
+                <label for="password">
+                  Contraseña:
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder=""
+                    formControlName="password"
+                  />
+                </label>
+              </div>
+              <div class="row col-md-12">
+                <small
+                  class="row alert alert-error"
+                  *ngIf="errorHandling('password', 'required')"
+                >
+                  La contraseña es requerida.
+                </small>
+                <!--
                                 pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
                                 required="required"
                                -->
+              </div>
             </div>
             <div class="row">
               <button type="submit" class="redbtn" (click)="onSubmit()">

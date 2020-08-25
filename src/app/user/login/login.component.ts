@@ -28,9 +28,10 @@ export class LoginComponent implements OnInit {
     private notificacion: NotificacionService
   ) {
     //     //redirect to home if already logged in
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
-    }
+    // if (this.authenticationService.currentUserValue) {
+    //   this.router.navigate(['/']);
+    // }
+    this.reactiveForm();
   }
 
   reactiveForm() {
@@ -40,8 +41,31 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  mensajes() {
+    let register = false;
+    let auth = false;
+    // Mensajes
+    this.route.queryParams.subscribe((params) => {
+      register = params.register || false;
+      auth = params.auth || false;
+    });
+    if (register) {
+      this.notificacion.mensaje(
+        'Usuario',
+        'Registro de usuario satisfactorio! Por favor especifique las credenciales para ingresar!',
+        'success'
+      );
+    }
+    if (auth) {
+      this.notificacion.mensaje(
+        'Usuario',
+        'Usuario no autorizado para ingresar al recurso solicitado',
+        'warning'
+      );
+    }
+  }
   ngOnInit(): void {
-    this.reactiveForm();
+    this.mensajes();
   }
 
   onSubmit() {
@@ -51,7 +75,7 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm.value);
     this.authenticationService.loginUser(this.loginForm.value).subscribe(
       (respuesta: any) => {
-        (this.user = respuesta), this.router.navigate(['peliculas/']);
+        (this.user = respuesta), window.location.href = '';
       },
       (error: any) => {
         this.error = error;
