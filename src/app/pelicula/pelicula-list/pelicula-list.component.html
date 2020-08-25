@@ -34,7 +34,7 @@
       </div>
       <div class="row" style="height: 20px;"></div>
       <div class="table-responsive">
-        <table class="table-responsive" *ngIf="peliculas && peliculas.length">
+        <table class="table" *ngIf="peliculas && peliculas.length">
           <thead>
             <tr>
               <th></th>
@@ -73,7 +73,7 @@
                 </ul>
               </td>
               <td>{{ pelicula.sinopsis }}</td>
-              <td class="checkbox">
+              <td>
                 <label class="checkbox-container"
                   ><input
                     type="checkbox"

@@ -876,6 +876,7 @@ th {
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
+  min-height: 150px;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
@@ -891,6 +892,7 @@ th {
 .table > thead > tr > th {
   vertical-align: bottom;
   border-bottom: 2px solid #ddd;
+  min-height:120px;
 }
 .table > caption + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > th,
@@ -8518,7 +8520,7 @@ footer.full-width-ft .ft-copyright {
 
 /* The container */
 .checkbox-container {
-  display: block;
+  display: inline;
   position: relative;
   padding-left: 35px;
   margin-bottom: 12px;
@@ -8582,5 +8584,9 @@ footer.full-width-ft .ft-copyright {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+.table a.item.item-2.redbtn.hvrbtn{
+  display:inline-flex;
 }
 

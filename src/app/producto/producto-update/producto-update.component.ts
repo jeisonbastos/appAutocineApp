@@ -132,6 +132,7 @@ export class ProductoUpdateComponent implements OnInit {
       .subscribe(
         (data: any) => {
           this.clasificaciones = data;
+          this.setProductoCheckedClassification();
         },
         (error: any) => {
           this.notificacion.mensaje(error.message, error.name, 'error');
@@ -146,8 +147,7 @@ export class ProductoUpdateComponent implements OnInit {
       .subscribe(
         (producto_tipos: any) => {
           console.log(producto_tipos);
-          (this.producto_tipos = producto_tipos),
-            this.setProductoCheckedClassification();
+          (this.producto_tipos = producto_tipos)
         },
         (error: any) => {
           this.notificacion.mensaje(error.message, error.name, 'error');
@@ -172,7 +172,7 @@ export class ProductoUpdateComponent implements OnInit {
   }
 
   setProductoCheckedClassification() {
-    this.producto_tipos.forEach((x) => {
+    this.clasificaciones.forEach((x) => {
       let selected = false;
       if (this.producto.classifications.find((i) => i.id == x.id)) {
         (this.updateForm.controls.classifications as FormArray).push(

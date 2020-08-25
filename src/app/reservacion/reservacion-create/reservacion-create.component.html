@@ -10,12 +10,13 @@
     </div>
   </div>
 </div>
-<div class="page-single pelicula_list">
+<div class="page-single producto_list">
   <div class="container">
-    <input type="hidden" formControlName="id" />
     <div class="form-style-1">
-      <form [formGroup]="updateForm" (ngSubmit)="onSubmit()" novalidate>
-        <p>{{ updateForm.value | json }}</p>
+      <form [formGroup]="createForm" (ngSubmit)="onSubmit()" novalidate>
+        <p>{{ createForm.value | json }}</p>
+        <input type="hidden" formControlName="puntuacion" />
+        <input type="hidden" formControlName="imagenURL" />
         <div class="row">
           <div class="col-md-4 form-it">
             <label for="nombre"
@@ -100,57 +101,56 @@
         </div>
         <div class="row">
           <div class="col-md-2 form-it">
-            <label for="product_type_id">Clasificación</label>
+            <label for="product_type_id">Tipo</label>
+            <!-- {{tipos|json}} -->
             <select
               class="fluid dropdown"
               formControlName="product_type_id"
               (change)="getSelectTipoDescr($event)"
             >
-              <option *ngFor="let tipo of producto_tipos" [value]="tipo.id">
+              <option>--Seleccione Tipo--</option>
+              <option *ngFor="let tipo of tipos" [value]="tipo.id">
                 {{ tipo.nombre }}
               </option>
             </select>
           </div>
-          <small
-            class="row alert alert-error"
-            *ngIf="errorHandling('product_type_id', 'required')"
-          >
-            Debe seleccionar una clasificación.
-          </small>
-          <div class="col-md-6 form-it">
+          <div class="col-md-10 form-it">
             <label *ngIf="tipo_descripcion.length">Descripción</label>
             <p>{{ tipo_descripcion }}</p>
           </div>
         </div>
+        <small
+          class="row alert alert-error"
+          *ngIf="errorHandling('product_type_id', 'required')"
+        >
+          Debe seleccionar una clasificación.
+        </small>
         <div class="row">
           <div class="col-md-12 form-it">
             <label for="classifications">Clasificaciones</label>
             <div
               name="classifications"
               id="classifications"
-              formArrayName="classifications_id"
+              formArrayName="classifications"
             >
               <div
                 class="col-md-2 form-it"
-                *ngFor="
-                  let classification of classifications_id.controls;
-                  index as i
-                "
+                *ngFor="let clasificacion of clasificaciones; index as i"
               >
                 <label class="checkbox-container"
-                  >{{ clasificaciones[i].nombre
+                  >{{ clasificacion.nombre
                   }}<input
                     type="checkbox"
                     class="form-control"
                     [value]="i"
                     (change)="
                       updateChkbxArray(
-                        clasificaciones[i].id,
+                        clasificacion.id,
                         $event,
                         'classifications'
                       )
                     "
-                    [formControlName]="i"
+                    [required]
                   /><span class="checkmark"></span>
                 </label>
               </div>
@@ -159,19 +159,20 @@
               class="row alert alert-error"
               *ngIf="errorHandling('classifications', 'required')"
             >
-              La producto debe estar asociada al menos con una clasificación.
+              La producto debe estar asociado al menos con una clasificación.
             </small>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6 form-it">
+          <div class="col-md-12 form-it">
             <label
               >Descripción
               <input
                 type="textarea"
                 class="form-control"
-                placeholder="Descripción"
+                placeholder="Descripcion"
                 formControlName="descripcion"
+                style="width: 90%;"
             /></label>
             <small
               class="row alert alert-error"
@@ -182,60 +183,17 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6 form-it">
-            <label
-              >Puntuación
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Puntuacion"
-                disabled="disabled"
-                formControlName="puntuacion"
-            /></label>
-            <small
-              class="row alert alert-error"
-              *ngIf="errorHandling('puntuacion', 'required')"
-            >
-              La puntuación es requerida.
-            </small>
-            <small
-              class="row alert alert-error"
-              *ngIf="errorHandling('puntuacion', 'min')"
-            >
-              La puntuación es mínima es 0.
-            </small>
-            <small
-              class="row alert alert-error"
-              *ngIf="errorHandling('puntuacion', 'pattern')"
-            >
-              La puntuación es dato numérico, máximo 2 decimales.
-            </small>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 form-it">
-            <label
-              >URL del Imagen
-              <input
-                type="text"
-                class="form-control"
-                placeholder="URL imagen"
-                formControlName="imagenURL"
-            /></label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2">
+          <div class="col-md-1 col-md-offset-8">
             <button class="redbtn" type="submit">
               Guardar
             </button>
           </div>
-          <div class="col-md1"></div>
-          <div class="col-md-2">
+          <div style="width: 25px;"></div>
+          <!-- <div class="col-md-1">
             <button class="redbtn" type="reset" (click)="onReset()">
               Cancelar
             </button>
-          </div>
+          </div> -->
         </div>
       </form>
     </div>
