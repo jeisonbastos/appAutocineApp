@@ -12,6 +12,7 @@ import { ProductoModule } from './producto/producto.module';
 import { PeliculaModule } from './pelicula/pelicula.module';
 import { UbicacionModule } from './ubicaciones/ubicacion.module';
 import { FuncionModule } from './funcion/funcion.module';
+import { ReservacionModule } from './reservacion/reservacion.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,6 +33,7 @@ import { FuncionModule } from './funcion/funcion.module';
     PeliculaModule,
     UbicacionModule,
     FuncionModule,
+    ReservacionModule,
 
     // al final el gestor de las rutas principal
     AppRoutingModule,

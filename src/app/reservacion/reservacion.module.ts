@@ -1,39 +1,39 @@
 import { NgModule } from '@angular/core';
-import { ProductoIndexComponent } from '../producto/producto-index/producto-index.component';
-import { ProductoListComponent } from '../producto/producto-list/producto-list.component';
-import { ProductoDetailComponent } from '../producto/producto-detail/producto-detail.component';
-import { ProductoCreateComponent } from '../producto/producto-create/producto-create.component';
-import { ProductoUpdateComponent } from '../producto/producto-update/producto-update.component';
+// import { ReservacionIndexComponent } from '../reservacion/reservacion-index/reservacion-index.component';
+// import { ReservacionListComponent } from '../reservacion/reservacion-list/reservacion-list.component';
+// import { ReservacionDetailComponent } from '../reservacion/reservacion-detail/reservacion-detail.component';
+ import { ReservacionCreateComponent } from '../reservacion/reservacion-create/reservacion-create.component';
+// import { ReservacionUpdateComponent } from '../reservacion/reservacion-update/reservacion-update.component';
 import { ConvertToSpacesPipe } from '../shared/convert-to-spaces.pipe';
 import { RouterModule } from '@angular/router';
-import { ProductDetailGuard } from '../producto/producto-detail/producto-detail.guard';
+// import { ProductDetailGuard } from '../reservacion/reservacion-detail/reservacion-detail.guard';
 import { SharedModule } from '../shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ProductoRoutingModule } from './reservacion-routing.module';
+import { ReservacionRoutingModule } from './reservacion-routing.module';
 
 @NgModule({
   declarations: [
-    ProductoIndexComponent,
-    ProductoListComponent,
-    ProductoDetailComponent,
-    ProductoCreateComponent,
-    ProductoUpdateComponent,
+    // ReservacionIndexComponent,
+    // ReservacionListComponent,
+    // ReservacionDetailComponent,
+    ReservacionCreateComponent,
+    // ReservacionUpdateComponent,
 
     //ConvertToSpacesPipe,
   ],
   imports: [
     // RouterModule.forChild([
     //   {
-    //     path: 'productos/:id',
+    //     path: 'reservacions/:id',
     //     canActivate: [ProductDetailGuard],
-    //     component: ProductoDetailComponent,
+    //     component: ReservacionDetailComponent,
     //   },
     // ]),
     CommonModule,
     ReactiveFormsModule,
     SharedModule,
-    ProductoRoutingModule,
+    ReservacionRoutingModule,
   ],
 })
-export class ProductoModule {}
+export class ReservacionModule {}

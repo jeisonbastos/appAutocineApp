@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ProductoCreateGuard } from './reservacion-create.guard';
+import { ReservacionCreateGuard } from './reservacion-create.guard';
 
-describe('ProductoCreateGuard', () => {
-  let guard: ProductoCreateGuard;
+describe('ReservacionCreateGuard', () => {
+  let guard: ReservacionCreateGuard;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    guard = TestBed.inject(ProductoCreateGuard);
+    guard = TestBed.inject(ReservacionCreateGuard);
   });
 
   it('should be created', () => {

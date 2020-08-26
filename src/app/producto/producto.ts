@@ -1,5 +1,6 @@
 import { IProductoTipo } from './producto-tipo';
 import { IProductoClasificacion } from './producto-clasificacion';
+import { IPivot } from '../reservacion/pivot';
 
 export interface IProducto {
   id: number;
@@ -11,4 +12,5 @@ export interface IProducto {
   imagenURL: string;
   product_type: IProductoTipo;
   classifications: IProductoClasificacion[];
+  pivot:IPivot[];
 }

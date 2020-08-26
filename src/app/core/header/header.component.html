@@ -39,6 +39,14 @@
                 >Cartelera
               </a>
             </li>
+            <li class="nav-item active" *ngIf="currentUser != null">
+              <a
+                class="nav-link"
+                routerLink="/reservaciones/registrar"
+                routerLinkActive="active"
+                >Reservar
+              </a>
+            </li>
             <li class="nav-item active">
               <a
                 class="nav-link"
@@ -63,7 +71,10 @@
                 >Ubicaciones
               </a>
             </li>
-            <li *ngIf="currentUser != null && rol.nombre == 'administrador'" class="nav-item dropdown">
+            <li
+              *ngIf="currentUser != null && rol.nombre == 'administrador'"
+              class="nav-item dropdown"
+            >
               <a
                 class="nav-link dropdown-toggle"
                 href="#"

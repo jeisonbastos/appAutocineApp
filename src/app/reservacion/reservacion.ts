@@ -1,5 +1,5 @@
 import { IProducto } from '../producto/producto';
-import { ITiquete } from './tiquete';
+import { ITiquete } from '../tiquete/tiquete';
 
 export interface IReservacion {
   id: number;

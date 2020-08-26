@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="hero-ct">
-          <h1>{{ pageTitle }}</h1>
+          <h1>Reservación: {{ pageTitle }}</h1>
         </div>
       </div>
     </div>
@@ -12,13 +12,331 @@
 </div>
 <div class="page-single producto_list">
   <div class="container">
-    <div class="form-style-1">
+    <div class="form-style-2">
       <form [formGroup]="createForm" (ngSubmit)="onSubmit()" novalidate>
         <p>{{ createForm.value | json }}</p>
-        <input type="hidden" formControlName="puntuacion" />
-        <input type="hidden" formControlName="imagenURL" />
+        <!-- <input type="hidden" formControlName="puntuacion" />
+        <input type="hidden" formControlName="imagenURL" /> -->
+        <h3>Ubicación</h3>
+        <hr style="color: yellow;" />
         <div class="row">
-          <div class="col-md-4 form-it">
+          <div class="col-md-3 form-it">
+            <label for="provincia_filter">Filtrar por Provincia</label>
+            {{ provincias | json }}
+            <select class="fluid dropdown" formControlName="provincia_filter">
+              <option value="-1">--Seleccione Provincia--</option>
+              <option value="San José">San José</option>
+              <option value="Alajuela">Alajuela</option>
+              <option value="Cartago">Cartago</option>
+              <option value="Heredia">Heredia</option>
+              <option value="Guanacaste">Guanacaste</option>
+              <option value="Puntarenas">Puntarenas</option>
+              <option value="Limón">Limón</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="provincia_filter">Provincia Seleccionada </label>
+            <input type="text" [(ngModel)]="listFilter" />
+          </div>
+        </div>
+        <div class="row" style="height: 10px;"></div>
+        <div class="row" *ngIf="listFilter">
+          <div class="col-md-6">
+            <h4>Filtered by: {{ listFilter }}</h4>
+          </div>
+        </div>
+        <div class="row" style="height: 20px;"></div>
+        <div class="row">
+          <div class="container">
+            <div
+              class="col-md-4 bordered"
+              *ngFor="let ubicacion of ubicaciones; index as i"
+            >
+              <div class="ceb-item-style-2">
+                <img src="#" alt="" />
+                <div class="ceb-infor">
+                  <h2>
+                    <a href="#">{{ ubicacion.nombre }}</a>
+                  </h2>
+                  <span>{{ ubicacion.provincia }}</span>
+                  <hr style="color: yellow;" />
+                  <label class="checkbox-container"
+                    >Reservar<input
+                      type="checkbox"
+                      class="form-control"
+                      [value]="i"
+                      (change)="
+                        updateChkbxArray(
+                          ubicaciones[i].id,
+                          $event,
+                          'ubicaciones'
+                        )
+                      "
+                      [formControlName]="i"
+                    /><span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3>Película</h3>
+        <hr style="color: yellow;" />
+        <div class="row">
+          <div class="container">
+            <div
+              class="col-md-4 bordered ceb-item-style-2"
+              *ngFor="let pelicula of peliculas; index as i"
+            >
+                <div class="ceb-item-style-2">
+                  <div class="ceb-infor">
+                    <div class="col-md-4">
+                      <img [src]="pelicula.imagenURL" [title]="pelicula.nombre" />
+                    </div>
+                    <div class="col-md-8">
+                    <h2>
+                      <a href="#">{{ pelicula.nombre }}</a>
+                    </h2>
+                    <span>{{ pelicula.classification.siglas }}</span>
+                    <hr style="color: yellow; size: 5px;" />
+                    <label class="checkbox-container"
+                      >Reservar<input
+                        type="checkbox"
+                        class="form-control"
+                        [value]="i"
+                        (change)="
+                          updateChkbxArray(peliculas[i].id, $event, 'peliculas')
+                        "
+                        [formControlName]="i"
+                      /><span class="checkmark"></span>
+                    </label>
+                  </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <h3>Función</h3>
+        <hr style="color: yellow;" />
+        <div class="row">
+          <div class="container">
+            <div
+              class="col-md-4 bordered"
+              *ngFor="let funcion of funciones; index as i"
+            >
+              <div class="ceb-item-style-2">
+                <img src="#" alt="" />
+                <div class="ceb-infor">
+                  <h2>
+                    <a href="#">{{ funcion.fecha }}</a>
+                  </h2>
+                  <span>{{ funcion.hora }}</span>
+                  <hr style="color: yellow;" />
+                  <label class="checkbox-container"
+                    >Reservar<input
+                      type="checkbox"
+                      class="form-control"
+                      [value]="i"
+                      (change)="
+                        updateChkbxArray(funciones[i].id, $event, 'funciones')
+                      "
+                      [formControlName]="i"
+                    /><span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3>Tiquetes</h3>
+        <hr style="color: yellow;" />
+        <div class="row">
+          <div class="col-md-3 form-it">
+            <label for="provincia_filter">Tipo de Tiquete</label>
+            {{ provincias | json }}
+            <select class="fluid dropdown" formControlName="provincia_filter">
+              <option value="-1">--Seleccione Tipo--</option>
+              <option
+                *ngFor="let tipo_tiquete of tipo_tiquetes; index as i"
+                [value]="tipo_tiquete.id"
+                >{{ tipo_tiquete.nombre }}</option
+              >
+            </select>
+          </div>
+          <div class="col-md-2">
+            <label for="provincia_filter">Cantidad </label>
+            <input type="number" min="0" step="1" [(ngModel)]="listFilter" />
+          </div>
+          <div class="col-md-2">
+            <label for="provincia_filter"> </label>
+            <button
+              class="redbtn"
+              type="button"
+              (click)="onReset()"
+              style="height: min-content; margin-top: 20px;"
+            >
+              <i class="ion-plus-round"></i>
+              Agregar
+            </button>
+          </div>
+        </div>
+        <div class="row" style="height: 10px;"></div>
+        <!-- <div class="row">
+          <div class="container">
+            <div
+              class="col-md-4 bordered"
+              *ngFor="let funcion of funciones; index as i"
+            >
+              <div class="ceb-item-style-2">
+                <img src="#" alt="" />
+                <div class="ceb-infor">
+                  <h2>
+                    <a href="#">{{ funcion.fecha }}</a>
+                  </h2>
+                  <span>{{ funcion.hora }}</span>
+                  <hr style="color: yellow;" />
+                  <label class="checkbox-container"
+                    >Reservar<input
+                      type="checkbox"
+                      class="form-control"
+                      [value]="i"
+                      (change)="
+                        updateChkbxArray(funciones[i].id, $event, 'funciones')
+                      "
+                      [formControlName]="i"
+                    /><span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <div class="row">
+          <div class="table-responsive">
+            <table class="table" *ngIf="tiquetes.length">
+              <thead>
+                <tr>
+                  <th>Cantidad</th>
+                  <th>Tipo</th>
+                  <th>Descripción</th>
+                  <th>Precio</th>
+                  <th>Total</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let tiquete of tiquetes">
+                  <td>
+                    {{ tiquete.pivot.cantidad }}
+                  </td>
+                  <td>
+                    {{ tiquete.tipo_tiquete.nombre }}
+                  </td>
+                  <td>{{ tiquete.tipo_tiquete.descripcion }}</td>
+                  <td>
+                    {{
+                      tiquete.tipo_tiquete.precio
+                        | currency: "CRC":"symbol":"1.2-2"
+                    }}
+                  </td>
+                  <td>
+                    {{ tiquete.pivot.cantidad * tiquete.tipo_tiquete.precio }}
+                  </td>
+                  <td>
+                    <a
+                      [routerLink]="['/tiquetes/actualizar', tiquete.id]"
+                      class="item item-2 redbtn hvrbtn"
+                      ><i class="ion-edit"></i
+                    ></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- <div class="col-md-12 form-it">
+            <label for="classifications">Peliculas</label>
+            <div
+              name="classifications"
+              id="classifications"
+              formArrayName="classifications"
+            >
+              <div
+                class="col-md-2 form-it"
+                *ngFor="let pelicula of filteredPeliculas; index as i"
+              >
+                <label class="checkbox-container"
+                  >{{ pelicula.nombre
+                  }}<input
+                    type="checkbox"
+                    class="form-control"
+                    [value]="i"
+                    (change)="
+                      updateChkbxArray(pelicula.id, $event, 'classifications')
+                    "
+                    [required]
+                  /><span class="checkmark"></span>
+                </label>
+              </div>
+            </div>
+            <small
+              class="row alert alert-error"
+              *ngIf="errorHandling('pelicula_id', 'required')"
+            >
+              La producto debe estar asociado al menos con una clasificación.
+            </small>
+          </div> -->
+        </div>
+        <!-- <div class="row">
+          <div class="col-md-12 form-it">
+            <label
+              >Descripción
+              <input
+                type="textarea"
+                class="form-control"
+                placeholder="Descripcion"
+                formControlName="descripcion"
+                style="width: 90%;"
+            /></label>
+            <small
+              class="row alert alert-error"
+              *ngIf="errorHandling('descripcion', 'required')"
+            >
+              Debe agregar una descripción al producto.
+            </small>
+          </div>
+        </div> -->
+        <div class="row">
+          <div class="col-md-1 col-md-offset-8">
+            <button class="redbtn" type="submit">
+              Guardar
+            </button>
+          </div>
+          <div style="width: 25px;"></div>
+          <!-- <div class="col-md-1">
+            <button class="redbtn" type="reset" (click)="onReset()">
+              Cancelar
+            </button>
+          </div> -->
+        </div>
+      </form>
+    </div>
+    <div class="col-md-4 col-md-offset-0">
+      <div>
+        <a href="/productos/lista" class="redbtn"
+          ><i class="ion-chevron-left"></i>Atrás</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/src/js/custom.js"></script>
+<script src="/src/jsplugins.js"></script>
+<script src="/src/jsplugins2.js"></script>
+<script src="/src/jscustom.js"></script>
+
+<hr style="color: yellow;" />
+
+<!-- <div class="col-md-4 form-it">
             <label for="nombre"
               >Nombre del Producto
               <input
@@ -97,116 +415,4 @@
                 La precio es dato numérico, máximo 2 decimales.
               </small>
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2 form-it">
-            <label for="product_type_id">Tipo</label>
-            <!-- {{tipos|json}} -->
-            <select
-              class="fluid dropdown"
-              formControlName="product_type_id"
-              (change)="getSelectTipoDescr($event)"
-            >
-              <option>--Seleccione Tipo--</option>
-              <option *ngFor="let tipo of tipos" [value]="tipo.id">
-                {{ tipo.nombre }}
-              </option>
-            </select>
-          </div>
-          <div class="col-md-10 form-it">
-            <label *ngIf="tipo_descripcion.length">Descripción</label>
-            <p>{{ tipo_descripcion }}</p>
-          </div>
-        </div>
-        <small
-          class="row alert alert-error"
-          *ngIf="errorHandling('product_type_id', 'required')"
-        >
-          Debe seleccionar una clasificación.
-        </small>
-        <div class="row">
-          <div class="col-md-12 form-it">
-            <label for="classifications">Clasificaciones</label>
-            <div
-              name="classifications"
-              id="classifications"
-              formArrayName="classifications"
-            >
-              <div
-                class="col-md-2 form-it"
-                *ngFor="let clasificacion of clasificaciones; index as i"
-              >
-                <label class="checkbox-container"
-                  >{{ clasificacion.nombre
-                  }}<input
-                    type="checkbox"
-                    class="form-control"
-                    [value]="i"
-                    (change)="
-                      updateChkbxArray(
-                        clasificacion.id,
-                        $event,
-                        'classifications'
-                      )
-                    "
-                    [required]
-                  /><span class="checkmark"></span>
-                </label>
-              </div>
-            </div>
-            <small
-              class="row alert alert-error"
-              *ngIf="errorHandling('classifications', 'required')"
-            >
-              La producto debe estar asociado al menos con una clasificación.
-            </small>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 form-it">
-            <label
-              >Descripción
-              <input
-                type="textarea"
-                class="form-control"
-                placeholder="Descripcion"
-                formControlName="descripcion"
-                style="width: 90%;"
-            /></label>
-            <small
-              class="row alert alert-error"
-              *ngIf="errorHandling('descripcion', 'required')"
-            >
-              Debe agregar una descripción al producto.
-            </small>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-1 col-md-offset-8">
-            <button class="redbtn" type="submit">
-              Guardar
-            </button>
-          </div>
-          <div style="width: 25px;"></div>
-          <!-- <div class="col-md-1">
-            <button class="redbtn" type="reset" (click)="onReset()">
-              Cancelar
-            </button>
           </div> -->
-        </div>
-      </form>
-    </div>
-    <div class="col-md-4 col-md-offset-0">
-      <div>
-        <a href="/productos/lista" class="redbtn"
-          ><i class="ion-chevron-left"></i>Atrás</a
-        >
-      </div>
-    </div>
-  </div>
-</div>
-<script src="/src/js/custom.js"></script>
-<script src="/src/jsplugins.js"></script>
-<script src="/src/jsplugins2.js"></script>
-<script src="/src/jscustom.js"></script>
